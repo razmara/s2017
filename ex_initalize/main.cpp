@@ -10,6 +10,7 @@ int main(){
 	auto r = openni::OpenNI::initialize();
 	if (r != openni::STATUS_OK)
 		printf("FAILED: \n%s\n",openni::OpenNI::getExtendedError());
+	openni::OpenNI::shutdown();
 	return 0;
 
 }
