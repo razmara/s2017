@@ -1,0 +1,5 @@
+
+openni2 - low-level access to sensors.
+
+opencv - seems somewhat relevant
+pcl   - point cloud library - seems relevant.

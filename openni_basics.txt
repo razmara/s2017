@@ -1,0 +1,9 @@
+
+openni::Device::getDeviceInfo() or OpenNI::enumerateDevices() -> array of device info
+DeviceInfo -> .getURI() -> Device::open()
+
+Device -> holds SensorInfo <array>
+
+SensorInfo -> Encoding, x/y res, type. 
+
+
