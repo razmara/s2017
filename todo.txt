@@ -1,0 +1,8 @@
+April 25, 2017:
+  Got all devices to display through OpenNi2, (NiViewer2)
+  Get recording of some basic data.
+April 24, 2017:
+  Got the computer up & running.
+  
+
+
