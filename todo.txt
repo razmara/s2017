@@ -1,3 +1,8 @@
+April 26, 2017:
+  Installed PCL, MeshLab,
+  Captured an image of erics hand.
+  CMake tests.
+
 April 25, 2017:
   Got all devices to display through OpenNi2, (NiViewer2)
   Get recording of some basic data.
