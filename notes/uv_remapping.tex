@@ -9,22 +9,22 @@
 
 \section{Goal}
 
-Find systems for altering UV mapping, their algorithsm, ect. In meshlab, (and possibly other) projects.
+Find systems for altering UV mapping, their algorithms, etc. In mesh lab, (and possibly other) projects.
 
 \section{Rational}
 
-To help us gain an understanding for possible systems of mapping textures to 3D models, aswell as gaining new insight on how to tackle improving texture quality.
+To help us gain an understanding for possible systems of mapping textures to 3D models, as well as gaining new insight on how to tackle improving texture quality.
 
 \section{Findings}
 
-\subsection{uv-mapping fileformat}
-For a .obj (wavefront .obj), \href{https://en.wikipedia.org/wiki/Wavefront_.obj_file}{(wikipedia)}, the texture is represented as a set of verticies, a set of texture coordinates (u,v) between 0 and 1, and a list of face elements.
+\subsection{UV-mapping file format}
+For a .obj (wavefront .obj), \href{https://en.wikipedia.org/wiki/Wavefront_.obj_file}{(Wikipedia)}, the texture is represented as a set of vertices, a set of texture coordinates (u,v) between 0 and 1, and a list of face elements.
 
 \subsection{iseez3d}
-Iseeze3d simply uses the verticies, vertex-textures points, and faces to generate its UV-map textures. The weird blurry effects found in Iseeze3D arn't actually used. My guess is that it is left in to permit some level of edge-blurring in the image.
+Iseeze3d simply uses the vertices, vertex-textures points, and faces to generate its UV-map textures. The weird blurry effects found in Iseeze3D aren't actually used. My guess is that it is left in to permit some level of edge-blurring in the image.
 
 \subsection{enhancement}
-In theory, each face coud be mapped into a triangular texture, without any loss of quality. The reason there are people manipulating the mapping is for better user ediblity.
+In theory, each face could be mapped into a triangular texture, without any loss of quality. The reason there are people manipulating the mapping is for better user editability.
 
 %The only case for enhacnment is the idea of keeping the face togeather, however I'm not sure this will actually assist in any mannor... The only case it could would be in the interperlation between verticies, where if there was a span of black it would show such span in the model. However I believe this is usually handeld by the UV-islands.
  
