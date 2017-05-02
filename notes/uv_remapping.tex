@@ -1,0 +1,40 @@
+%% This is written as a latex document
+%% Scott Saunders, 2017, 05, 02
+
+
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\section{Goal}
+
+Find systems for altering UV mapping, their algorithsm, ect. In meshlab, (and possibly other) projects.
+
+\section{Rational}
+
+To help us gain an understanding for possible systems of mapping textures to 3D models, aswell as gaining new insight on how to tackle improving texture quality.
+
+\section{Findings}
+
+For a .obj (wavefront .obj), \href{https://en.wikipedia.org/wiki/Wavefront_.obj_file}{(wikipedia)}, the texture is represented as a set of verticies, a set of texture coordinates (u,v) between 0 and 1, and a list of face elements. 
+
+%There are multiple ways UV-map an image, (this can been seen in blender).
+%
+%From a \href{https://sourceforge.net/p/meshlab/discussion/499533/thread/93406a9f/?limit=25}{post}, there is a reference to using meshlab (and blender) to do UV mapping...
+%
+%% A UV layout per texture
+%% A raw model
+%% Iso parameterization (Likly best, from post above0
+%% Remeshing, SImplification and Reconstrctioin | Iso Parameterization (Abstract Domain)
+%% above, but Atlased mesh (Uses abstract domain to generate actual UV layout. Will allso modify the mest.)
+%% In short: See texture menu.
+%
+%% Texture backing/merging: 
+% Import model. To transfer the textures from the original to your new UV mapping (target), you want to use Texture, Transfer vertex attributes to texture (between 2 meshes). For Color data source select "Texture color." the rest of the optiuons are nice.
+
+%12:30pm - Trying to figure out what the blurry stuff is in itseez3d... 
+%1:13pm - Iseez3d just simply has this as extra data that they don't remove. In meshlab there is an ability to view the UV-texture mapping plane.
+
+
+\end{document}
