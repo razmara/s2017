@@ -1,13 +1,14 @@
 May2:
-  Re-organized
   More Cmake (-G Xcode) -> Seems to generate Xcode.
-  
+  Re-organized
+  Researched UV-reparamitization, doesn't allow alot...
 
 May1:
   Setup / got used to mac
   Intro to Xcode
   Added abunch to the Todo
   Tried to get a better grasp on cmake
+  
 
 April 26, 2017:
   Installed PCL, MeshLab,
