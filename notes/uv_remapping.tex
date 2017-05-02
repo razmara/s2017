@@ -26,7 +26,9 @@ For a .obj (wavefront .obj), \href{https://en.wikipedia.org/wiki/Wavefront_.obj_
 Iseeze3d simply uses the vertices, vertex-textures points, and faces to generate its UV-map textures. The weird blurry effects found in Iseeze3D aren't actually used. My guess is that it is left in to permit some level of edge-blurring in the image.
 
 \subsection{enhancement}
-In theory, each face could be mapped into a triangular texture, without any loss of quality. The reason there are people manipulating the mapping is for better user editability.
+In theory, each face could be mapped into a triangular texture, without any loss of quality. The reason there are people manipulating the mapping is for better user editability. Actual texture-enhancement would probably be done prior to this. 
+\\
+One could put all pictures captured into this texture file, however due to the simplicity of the .obj file, any face of the model could only ever contain data from one of these pictures. It would be better to pass the raw data (pictures and depth), or processes it in its entirety, and just save the result in the .obj file.
 
 %The only case for enhacnment is the idea of keeping the face togeather, however I'm not sure this will actually assist in any mannor... The only case it could would be in the interperlation between verticies, where if there was a span of black it would show such span in the model. However I believe this is usually handeld by the UV-islands.
  
