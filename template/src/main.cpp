@@ -1,6 +1,11 @@
-#include <opencv2/opencv.hpp>
-#include <openni2/OpenNI.h>
 
+#include <opencv2/opencv.hpp>
+
+#ifdef LINUX
+	#include <openni2/OpenNI.h>
+#elif  DARWIN
+	#include <OpenNI.h>
+#endif
 
 int main(){
 

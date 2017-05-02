@@ -1,13 +1,17 @@
-April 26, 2017:
-  Installed PCL, MeshLab,
-  Captured an image of erics hand.
-  CMake tests.
+Setup and test a cross-platform cmake file.
+ - Cmake -G <>
+	- OpenNI2 not found on a mac via homebrew install of openni2
+ - Erics test program git@github.com:Spoonman376/3d-Reconstruction.git
+ - My test program
 
-April 25, 2017:
-  Got all devices to display through OpenNi2, (NiViewer2)
-  Get recording of some basic data.
-April 24, 2017:
-  Got the computer up & running.
-  
+PCL <-> Compile, play with /test
 
+Papers <-> Read them, make some nice summaries.
+
+SDK  <->  Getting pictures & depth pictures. (3D model (no depth pictures?)
+
+OpenNI2 <-> getting pictures & depth pictures, turning on IR light for scanner?
+
+IDevice -> Get pictures n things
+   see:  3D imaging project -> structure sensor -> structure SDK new version -> samples -> scannerPictures -> 3D model (w/ depth and w/o depth)
 
