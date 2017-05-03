@@ -1,3 +1,5 @@
+Scott: Begin porting/using the Elastic Reconstruction code to processes some things.
+
 Erik: Get the raw data out of an IOS device.
 
 Setup and test a cross-platform cmake file.

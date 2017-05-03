@@ -4,3 +4,8 @@ openni2 - low-level access to sensors.
 
 opencv - seems somewhat relevant (processes images)
 pcl   - point cloud library - seems relevant. (Elastic Reconstruction (Mr. Q) uses this aswell)
+
+
+Aside:
+We could attempt to do this whole process (RGB-D images -> Textured Models) with machine learning. (There is a dataset available, and we could also use realistic ray-tracing to render images of scenes for this, with virtual cameras aswell.)
+
