@@ -1,13 +1,4 @@
-MetaOptima May1 priorities:
-
-SDK  <->  Getting pictures & depth pictures. (3D model (no depth pictures?) (Working on it)
-
-IDevice -> Get pictures n things 
-   see:  3D imaging project -> structure sensor -> structure SDK new version -> samples -> scannerPictures -> 3D model (w/ depth and w/o depth)
-    They have a old code-base that grabs the raw camera pic.
-
-OpenNI2 on IDevice, seems like it could link, but that needs to be shown to be possible. -> It explicitly says OpenNI2 is _not_ supported on IOS.
-
+Erik: Get the raw data out of an IOS device.
 
 Setup and test a cross-platform cmake file.
  - Cmake -G <>
