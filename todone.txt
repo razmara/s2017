@@ -1,10 +1,14 @@
+May3: 
+  Read some papers,
+
+
 May2:
   More Cmake (-G Xcode) -> Seems to generate Xcode.
   Re-organized
   Researched UV-reparamitization, doesn't allow alot...
   Looked for what creatues the 3D model within the apps they have, it's just included with the SDK binarys which we donot have accsess to.
-  Agreed that we want to simply recording images and use them for post-processing.
-  Updated their old codebase of the modified scanner app to a newer SDK, got permissions, etc.
+  Agreed that we want to simply recording images and use them for post-processing. (w/ others)
+  Updated their old codebase of the modified scanner app to a newer SDK, got permissions, etc. (w/ erik)
   
 
 May1:
