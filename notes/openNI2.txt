@@ -1,0 +1,7 @@
+openNI2 notes:
+
+Good for grabbing raw data.
+
+IOS:
+-Not available on IOS, despite the fact that the structureSDK clearly uses this. (Atleast, according to their website)
+-I don't know enough about cross-compiling onto IOS devices for me to verify this.

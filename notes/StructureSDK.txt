@@ -1,0 +1,5 @@
+Structure SDK notes:
+
+The SLAM (Simultaneous localization and mapping) system is built into the SDK, without any source-code accsess. Ie, we can only post-process it, or use it to get the raw data.
+
+Due to the fact we want this to work outside of an IPAD, we will be using it to get the raw data.
