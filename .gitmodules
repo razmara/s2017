@@ -1,0 +1,3 @@
+[submodule "StSDK"]
+	path = StSDK
+	url = git@github.com:ttoocs/Structure-SDK.git
