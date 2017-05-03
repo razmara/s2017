@@ -1,0 +1,6 @@
+En general:
+
+openni2 - low-level access to sensors.
+
+opencv - seems somewhat relevant (processes images)
+pcl   - point cloud library - seems relevant. (Elastic Reconstruction (Mr. Q) uses this aswell)
