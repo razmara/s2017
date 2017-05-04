@@ -1,3 +1,6 @@
 [submodule "StSDK"]
 	path = StSDK
 	url = git@github.com:ttoocs/Structure-SDK.git
+[submodule "ER_port"]
+	path = ER_port
+	url = git@github.com:Spoonman376/Elastic-Reconstruction-Port.git
