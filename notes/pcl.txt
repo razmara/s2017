@@ -1,0 +1,4 @@
+#PCL NOTES:
+
+
+for a mac install: brew install pcl --with-openni2
