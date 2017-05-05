@@ -1,6 +1,18 @@
+May5:
+  Finalize & test ipad that's being taken home.
+  Read more cmake,
+  Study hoe it compiles as-is.
+
+May4:
+  Ported some ER (erik)
+  Read-up on CMAKE and compiling things/linking
+    -VS->cmake, xcode -> cmake...
+
 May3: 
   Read some papers,
-
+  Meeting w/ sunny
+  Setup Credentals for IDevices
+  
 
 May2:
   More Cmake (-G Xcode) -> Seems to generate Xcode.
