@@ -1,10 +1,9 @@
 Scott: Begin porting/using the Elastic Reconstruction code to processes some things.
 
-Erik: Get the raw data out of an IOS device.
-
 Setup and test a cross-platform cmake file.
  - Cmake -G <>
 	- OpenNI2 not found on a mac via homebrew install of openni2
+  - Flann cmake BS.
  - Erics test program git@github.com:Spoonman376/3d-Reconstruction.git
  - My test program
 
