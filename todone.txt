@@ -1,3 +1,9 @@
+May 9:
+  Attempted to install abunch of things on windows - didn't really work
+  Scanned with EniScan-pro, it kinda works, but still had harsh edges where there were none. It also seems to break the OS in some weird way... a reboot fixes it though.
+  Attempted to run windows in a VM - lots of complications.
+
+
 May5:
   Finalize & test ipad that's being taken home.
   Read more cmake, -  XXXConfig.cmake - HOW EVERYTHING ACTUALLY WORKS
