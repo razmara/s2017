@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 
 May 10:
   Fixed windows in a VM issues, (USB-passthough works, albeit the scanner app currently crashes)
@@ -13,6 +13,11 @@ May 9:
   Scanned with EniScan-pro, it kinda works, but still had harsh edges where there were none. It also seems to break the OS in some weird way... a reboot fixes it though.
   Attempted to run windows in a VM - lots of complications.
 
+=======
+May 9:
+  Attempted to setup windows, and a windows build of Elastic Reconstruction.
+  Is a long and slow processes, will be doing it in a VM now.
+>>>>>>> d1c6363... old todone mods.
 
 May5:
   Finalize & test ipad that's being taken home.
