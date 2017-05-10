@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 May 10:
   Fixed windows in a VM issues, (USB-passthough works, albeit the scanner app currently crashes)

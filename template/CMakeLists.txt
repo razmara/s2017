@@ -20,12 +20,14 @@ include_directories(
     ${OPENNI2_INCLUDE_DIRS}
     )
 #
-# link_directories(
+#link_directories(
 #    $ENV{OPENNI2_REDIST}
+#    
 #    )
 #
 link_libraries(
     #-lOpenNI2
+    ${OPENNI2_LIBRARIES}
     ${OPENNI_LIBRARIES} 
     ${OpenCV_LIBS}
     )
