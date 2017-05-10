@@ -4,3 +4,6 @@
 [submodule "ER_port"]
 	path = ER_port
 	url = git@github.com:Spoonman376/Elastic-Reconstruction-Port.git
+[submodule "3d-re"]
+	path = 3d-re
+	url = git@github.com:Spoonman376/3d-Reconstruction.git
