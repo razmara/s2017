@@ -1,3 +1,13 @@
+
+
+May 10:
+  Fixed windows in a VM issues, (USB-passthough works, albeit the scanner app currently crashes)
+  Finished setting up linux/windows on the gaming-pc thing.
+  
+  Tested tempalte's cmake on sonny's mac, doesn't work, however,
+  Adding in the exports recommened from brew info openni2, it does work.
+  
+
 May 9:
   Attempted to install abunch of things on windows - didn't really work
   Scanned with EniScan-pro, it kinda works, but still had harsh edges where there were none. It also seems to break the OS in some weird way... a reboot fixes it though.
