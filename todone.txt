@@ -1,11 +1,15 @@
 
+
 May 10:
   Fixed windows in a VM issues, (USB-passthough works, albeit the scanner app currently crashes)
-  Finished setting up linux/windows on the gaming-pc thing.
+    -Due to this, that scanner is being moved to eirk's pc, so that I can remote into it.
+
+  Finished setting up linux/windows on the gaming-pc thing.   
   
   Tested tempalte's cmake on sonny's mac, doesn't work, however,
   Adding in the exports recommened from brew info openni2, it does work.
   
+  Made a CMakeLists work for 3D-reconstruction, and tested this on a mac, I believe it to work on linux, and will also test it on windows.
 
 May 9:
   Attempted to install abunch of things on windows - didn't really work
