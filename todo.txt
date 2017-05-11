@@ -1,11 +1,15 @@
-Scott: Begin porting/using the Elastic Reconstruction code to processes some things.
+Evaluate EinScan-pro:
+    Setup a _VNC_ server on erik's machine, to test scanning, as RDP doesn't seem to support CUDA, which this seems to use.
+    Scan some things! (Possibly plant-like things)
 
-Setup and test a cross-platform cmake file.
- - Cmake -G <>
-	- OpenNI2 not found on a mac via homebrew install of openni2
-  - Flann cmake BS.
- - Erics test program git@github.com:Spoonman376/3d-Reconstruction.git
- - My test program
+CMake ALL the rest of the ER_port & port it.
+    #Ported(?)
+	-FragmentOptimizer
+	-GraphOptimizer
+    #Not yet ported.
+	-Integrate
+	-GlobalRegistration
+
 
 PCL <-> Compile, play with /test
 

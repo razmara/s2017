@@ -1,4 +1,10 @@
-
+May 11:
+  Moved the scanner to Erik's pc, to allow for it to scan w/ a graphics card (Also, narrowed it down to the lack of a gfx card being the issue.)
+  Created & tested Cmake for BuildCorrespondence
+    -Tested it with cmake -G xcode aswell, it builds, although I'm not entierly sure where....
+  Tested 3d-reconstruction on mac/linux - works fine with cmake.
+  Tested same programs on windows, have no idea how anyone uses windows for anything.
+    -OpenCV also has a not-so great installer, (Simply puts abunch of files in a folder.)
 
 May 10:
   Fixed windows in a VM issues, (USB-passthough works, albeit the scanner app currently crashes)
