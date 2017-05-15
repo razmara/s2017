@@ -1,3 +1,11 @@
+May 12:
+  Started making the CMakeLists of fragmentOptimizer, which requries things that doesn't have CMakes...
+    -Attempting to include a version that does have cmakes as a git submodule,
+    -Alt: Make a really good CMakeFind.
+    -Note: This is being done in a new branch, as I'm also updating Eigen,
+    -Note: And erik does have a way to build it via Xcode.
+  Also tested the EniScan for Mr. P/Mik, and found that it doesn't handle anything skinny.
+
 May 11:
   Moved the scanner to Erik's pc, to allow for it to scan w/ a graphics card (Also, narrowed it down to the lack of a gfx card being the issue.)
   Created & tested Cmake for BuildCorrespondence
