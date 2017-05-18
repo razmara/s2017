@@ -7,3 +7,6 @@
 [submodule "3d-re"]
 	path = 3d-re
 	url = git@github.com:Spoonman376/3d-Reconstruction.git
+[submodule "ER_myfork"]
+	path = ER_myfork
+	url = git@github.com:ttoocs/ElasticReconstruction.git
