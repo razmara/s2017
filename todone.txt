@@ -1,7 +1,14 @@
+
 May 18:
     Setup remote accsess to the mac so I may get accsess to it if needed. (ssh)
     PCL & brew & openi & openni2
         Building PCL in a folder to enable faster/incremental builds.
+        -it worked, it was also able to install, my problems solved
+            -Apprently it worked fine for eric without my modifications, so /shrug.
+    brew g2o - not so great, only includes some libraries, not all of them, will need to improve, or include locally.
+        -include it in the git? - recompile it??
+    Integrate has a working CMakeLists.txt now,
+    GraphOptmizer is in progress.
 
 May 17:
     -Stayed home,
