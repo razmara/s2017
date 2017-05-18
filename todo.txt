@@ -1,12 +1,11 @@
-Evaluate EinScan-pro:
-    Setup a _VNC_ server on erik's machine, to test scanning, as RDP doesn't seem to support CUDA, which this seems to use.
-    Scan some things! (Possibly plant-like things)
 
 CMake ALL the rest of the ER_port & port it.
     #Ported(?)
 	-FragmentOptimizer
+        -SuiteSparse 
+        -Eigen - Works if I stub out that one line, I should handle that properly though. (A new class that inherits from it, and exposes a writter or makes m_value public)
 	-GraphOptimizer
-    #Not yet ported.
+    #Not yet ported. (?)
 	-Integrate
 	-GlobalRegistration
 
@@ -16,3 +15,4 @@ PCL <-> Compile, play with /test
 Papers <-> Read them, make some nice summaries.
 
 OpenNI2 <-> getting pictures & depth pictures, turning on IR light for scanner?
+  -Erik is working on this(?)

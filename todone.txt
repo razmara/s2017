@@ -1,3 +1,34 @@
+May 18:
+    Setup remote accsess to the mac so I may get accsess to it if needed. (ssh)
+    PCL & brew & openi & openni2
+        Building PCL in a folder to enable faster/incremental builds.
+
+May 17:
+    -Stayed home,
+    -Checked the build options on linux for PCL, Openni and openni2 present, unlike for mac.. 
+    -Didn't have ssh accsess to mac, couldn't test PCL builds.
+
+May 16:
+    Continued work on Integrate,
+        -brew still ugly, seems to mess up PCL openni2 + openni
+            -Checked the brew bit, seems fine, just takes forever to build. (?)
+        -Attempting to fix the brew PCL package to get it to install properly.
+    Attempted to run ElasticReconstruction on Windows
+        -Cuda screws it up, - link errors
+        -Cuda screws it up more, - Gpu-based versioning systems... get to re-build PCL from source.
+        Compiling from source: Lots of dependencies,
+            -Boost (Seems good)
+            -Eigen (Good)
+            -Flann (Needs HDF5, - Stuck)
+            -vtk, opencv, and more! 
+
+May 15:
+    Finished FragmentOptmizer Cmake, Made it not-break Erik's build-system
+    Started & Finished a cmake for GlobalRegistration
+    Started work on Integrate, 
+        -brew install pcl seems to only like openni or openni2, and not both?
+            
+
 May 12:
   Started making the CMakeLists of fragmentOptimizer, which requries things that doesn't have CMakes...
     -Attempting to include a version that does have cmakes as a git submodule,
