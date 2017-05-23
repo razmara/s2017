@@ -1,3 +1,6 @@
+May 23:
+    Got PCL to build with kinfu support. (pcl-git with one line commented)
+
 May 19:
     Got expensive of trip organized, @ emailed,
     
