@@ -1,0 +1,20 @@
+1) PCL:
+Download and install the windows PCL
+  -It will fail on OpenNI, this is fine.
+Download and install the OpenNI (patched) from the PCL download page.
+Download and install the Sensor-Win (patched) from the PCL download page.
+
+(You may be able to get away with just OpenNI, but I've not tested this.)
+
+Note: You will have to run a lot of these installers as administrator, possibly with some weird ways.
+
+2) Cuda:
+Goto nvidia, download cuda (I've used v8.0)
+if(8.0):
+  Go into it's installed directory, subfolder bin, make a copy of cudart64_80.dll and name it cudaart64_70.dll
+
+3) Reboot.
+
+#It still won't work. Cuda sucks.
+
+Some things will now work, but pcl_kingfu doesn't, cuda is broken.
