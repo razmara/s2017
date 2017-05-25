@@ -1,3 +1,19 @@
+May 23:
+    Got PCL to build with kinfu support. (pcl-git with one line commented)
+
+May 19:
+    Got expensive of trip organized, @ emailed,
+    
+    Try to get anything with cuda to compile on mac:
+        -nvcc fatal   : GNU C/C++ compiler is no longer supported as a host compiler on Mac OS X.
+        -nvcc fatal   - doesn't like clang.
+    PCL Kinfu 
+        -Cannot compile due to new versions of gcc, 
+        -Gcc5 is available for this resason, unknow operator << errors within Kinfu.
+    
+    Made videos of broken health n safty stuff, and emailed them.
+    Setup for doing recipts.
+    
 
 May 18:
     Setup remote accsess to the mac so I may get accsess to it if needed. (ssh)

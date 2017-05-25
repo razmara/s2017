@@ -1,14 +1,7 @@
-
-CMake ALL the rest of the ER_port & port it.
-    #Ported(?)
-	-FragmentOptimizer
-        -SuiteSparse 
-        -Eigen - Works if I stub out that one line, I should handle that properly though. (A new class that inherits from it, and exposes a writter or makes m_value public)
+CMake ALL the rest of the ER_port
 	-GraphOptimizer
-    #Not yet ported. (?)
-	-Integrate
-	-GlobalRegistration
 
+Test the ported code with what we can of the windows binary.
 
 PCL <-> Compile, play with /test
 
