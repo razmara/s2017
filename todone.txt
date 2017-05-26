@@ -1,5 +1,7 @@
 May 23:
     Got PCL to build with kinfu support. (pcl-git with one line commented)
+    Got graph-optimizer compiling with cmake on linux.
+    Seems I broke the mac (it doesn't like compiling a few things now....)
 
 May 19:
     Got expensive of trip organized, @ emailed,
