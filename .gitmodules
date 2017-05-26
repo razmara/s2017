@@ -10,3 +10,6 @@
 [submodule "ER_myfork"]
 	path = ER_myfork
 	url = git@github.com:ttoocs/ElasticReconstruction.git
+[submodule "pcl"]
+	path = pcl
+	url = git@github.com:ttoocs/pcl.git
