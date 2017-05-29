@@ -1,19 +1,14 @@
 Figure out how to merge standfordPCL with PCL.
-	-Search history of PCl for closest start with StanfordPCL...
+	-Search history of PCl for closest start with StanfordPCL... 10k lines.
 	(Seems theres some nice SVN revision id's in some files... but they seem a little.... several thousand revisions missing...)
 
-Merge in the required componenets of standford PCL for the kinfuApp, for generating fragments and whatnot.
-	Seems the only source of this is from his git, which is detached from the oriognal.
-	--fragment
-
-CMake ALL the rest of the ER_port
-	-GraphOptimizer
-
-Test the ported code with what we can of the windows binary.
-
-PCL <-> Compile, play with /test
+Fix macOSX broken g2o.
 
 Papers <-> Read them, make some nice summaries.
 
 OpenNI2 <-> getting pictures & depth pictures, turning on IR light for scanner?
-  -Erik is working on this(?)
+	-Erik is working on this(?)
+	-NiViewer does this(?)
+	-Many 3rd party things seem to also.
+
+
