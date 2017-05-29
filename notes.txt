@@ -1,4 +1,9 @@
 Found another thing: http://thomaswhelan.ie/ , he has various publications, about 3D rendering.
   -Found it via stanford PCL git commit message ' 	Merge remote-tracking branch 'origin/Kintinuous' '
   - It has this license: http://www.cs.nuim.ie/research/vision/data/kintinuous/code.php
+    -Excplicitly says no commercial use
+  -PCL doesn't have this,
+    -Stanford PCL pulled this code from before the time that this git exsisted.
+      -License = ???
+  
 
