@@ -1,3 +1,17 @@
+May 29:
+    Found ElasticFusion: Seems tied to SPCL, as there is a reference of pulling from it, (but form before it existed)
+
+
+May 26:
+    SPCL:
+	-Wrote scripts to find where it diverges... best case is 10k lines.
+	-Hoped to find better over weekend (didn't)
+
+May 25:
+    We learned we need to buidl standford PCL
+    - Looked into finding where it branches off
+    
+
 May 24:
     Got everything to build (at least once) via cmake on linux, and mac.
 	-Cory helped, everything compiles on linux now.
