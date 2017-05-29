@@ -1,5 +1,3 @@
+Found another thing: http://thomaswhelan.ie/ , he has various publications, about 3D rendering.
+  -Found it via stanford PCL git commit message ' 	Merge remote-tracking branch 'origin/Kintinuous' '
 
-openni2 - low-level access to sensors.
-
-opencv - seems somewhat relevant
-pcl   - point cloud library - seems relevant.

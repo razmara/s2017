@@ -13,3 +13,6 @@
 [submodule "pcl"]
 	path = pcl
 	url = git@github.com:ttoocs/pcl.git
+[submodule "ElasticFusion"]
+	path = ElasticFusion
+	url = git@github.com:mp3guy/ElasticFusion.git
