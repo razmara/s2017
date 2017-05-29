@@ -1,3 +1,11 @@
+May 24:
+    Got everything to build (at least once) via cmake on linux, and mac.
+	-Cory helped, everything compiles on linux now.
+    Testing GlobalReconstruction with actual data. (Erik has had memory faults on mac, I don't on linux.)
+        -It got actual results!
+    Binarys on windows didn't really like working. (Some setup still required)
+	-On my windows: I have things installed: OpenMP it does work.
+
 May 23:
     Got PCL to build with kinfu support. (pcl-git with one line commented)
     Got graph-optimizer compiling with cmake on linux.
