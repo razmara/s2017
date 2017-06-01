@@ -3,10 +3,16 @@ May 31:
     Manually moving functions into PCL.
     Made cmake for erik's standalone pcl_kinfu_largescale
 
+May 30:
+    More git fun!
+    Got a fix for g2o on OSX for building ER:
+	Add in the head for brew, and install it via --HEAD.
+
 
 May 29:
     Found ElasticFusion: Seems tied to SPCL, as there is a reference of pulling from it, (but form before it existed)
-
+    Worked with git - trying to port the code over..
+    Working manually, ported some code over (didn't work)
 
 May 26:
     SPCL:

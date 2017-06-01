@@ -2,8 +2,6 @@ Figure out how to merge standfordPCL with PCL.
 	-Search history of PCl for closest start with StanfordPCL... 10k lines.
 	(Seems theres some nice SVN revision id's in some files... but they seem a little.... several thousand revisions missing...)
 
-Fix macOSX broken g2o.
-
 Papers <-> Read them, make some nice summaries.
 
 OpenNI2 <-> getting pictures & depth pictures, turning on IR light for scanner?
