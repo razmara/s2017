@@ -1,3 +1,10 @@
+June 2: 
+    Segfaults caused by eigen/gcc/optimization -mavx, compiling with -mno-avx helps fix this.
+
+June 1:
+    Worked on porting SPCL
+      -Args and parsing in, some copying... segfautls
+
 May 31:
     Manually merged.. untill I found randomly unscoped code..
     Manually moving functions into PCL.
