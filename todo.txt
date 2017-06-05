@@ -1,5 +1,6 @@
-Bring over fragments, rgbd odometry, and anything else from SPCL that we are using.
 
+-Run a test-run of ER.
+Bring from SPCL to PCL: rgbd odometry, and Camera.
 
 Papers <-> Read them, make some nice summaries.
 
