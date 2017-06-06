@@ -1,5 +1,12 @@
+June 5:
+    Tried running Global Registration with generated .pcd's, failed.
+      -Missing arguments/flags in writting of the file.
+    Read a lot out typedefs, templates, etc. (SPCL had some weird thing.. I don't think it would have ever compilied properly.)
+    
+
 June 2: 
     Segfaults caused by eigen/gcc/optimization -mavx, compiling with -mno-avx helps fix this.
+    Now generates .pcd's and the .log.
 
 June 1:
     Worked on porting SPCL
