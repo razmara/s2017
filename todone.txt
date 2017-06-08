@@ -1,3 +1,15 @@
+June 7:
+    Found the reason of missing flags,
+    Attempted a run of GlobalRegistration like we did prior with just the pcds:
+      -8 min runtime per alignment
+    GlobalRegistration with the log:
+      -processes 16 (in 4 ms each?) and then segfaults. I believe the values causing the segfaults are tx,ty,tz of targets_ in RansacCurvature.h or PolyRejector.
+      
+      
+
+June 6:
+    Started tracing while missing flags.
+
 June 5:
     Tried running Global Registration with generated .pcd's, failed.
       -Missing arguments/flags in writting of the file.
