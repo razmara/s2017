@@ -1,3 +1,10 @@
+June 12:
+    Fixed a horrible bug that was causing the long run times, now we ahve actual data, and GR runs and finishes.
+    Tried to put it through the rest of the pipeline ->
+      Missing files: keep.log reg_refine_all.log, reg_output.log 
+        -And the camera.param thing too
+    Worked on scripting it. Runs it all up to FragmentOptimizer now(?)
+
 June 8/9:
     setup and started running a process of GR. (ITS PAINFULLY SLOW)
     Scripted running chunks of the pipeline and uploading them to the google drive
