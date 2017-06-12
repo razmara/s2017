@@ -114,7 +114,7 @@ for FILE in $FILES; do
     wait
     cd ..
     tar -c kinfu | xz -9 -T8 > $FILE.kinfu.$VERSION.tar.xz
-    cp $FILE.kinfu.$VERSION.tar.xz $TESTDATADIR/1_kinfu_results/ &
+    cp $FILE.kinfu.$VERSION.tar.xz "$TESTDATADIR/1_kinfu_results/" &
     ) &
   fi
 done
@@ -143,7 +143,7 @@ for FILE in $FILES; do
     $GR_BIN  ./kinfu/ ./kinfu/100-0.log 50 &> GR_RUN_LOG.txt && \
     cd .. && \
     tar -c ./globalregistration | xz -9 -T8 > GR.$FILE.$VERSION.tar.xz
-    cp GR.$FILE.$VERSION.tar.xz $TESTDATADIR/2_global_registration_results/ &
+    cp GR.$FILE.$VERSION.tar.xz "$TESTDATADIR/2_global_registration_results/" &
     ) &
   fi
 done  
@@ -170,7 +170,7 @@ for FILE in $FILES; do
     $GO_BIN -w 100  --odometry ./globalregistration/odometry.log --odometryinfo globalregistration/odometry.info --loop ./globalregistration/result.txt --loopinfo ./globalregistration/result.info --pose ../globalregistration/pose.log &> go.run.log.txt && \
     cd .. && \
     tar -c ./go | xz -9 -T8 >  go.$FILE.$VERSION.tar.xz && \
-    cp go.$FILE.$VERSION.tar.xz $TESTDATADIR/3_go/ &
+    cp go.$FILE.$VERSION.tar.xz "$TESTDATADIR/3_go/" &
     ) &
   fi
 done
@@ -198,7 +198,7 @@ for FILE in $FILES; do
     $BC_BIN --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn &> bc.run.log.txt && \
     cd .. && \
     tar -c ./bc | xz -9 -T8 >  bc.$FILE.$VERSION.tar.xz && \
-    cp bc.$FILE.$VERSION.tar.xz $TESTDATADIR/4_bc/ &
+    cp bc.$FILE.$VERSION.tar.xz "$TESTDATADIR/4_bc/" &
     ) &
   fi
 done
@@ -228,6 +228,36 @@ for FILE in $FILES; do
     cd .. && \
     tar -c ./fo | xz -9 -T8 >  fo.$FILE.$VERSION.tar.xz && \
     cp fo.$FILE.$VERSION.tar.xz $TESTDATADIR/5_fo/ &
+    ) &
+  fi
+done
+
+wait
+
+echo "Done FragmentOptimizer"
+
+
+
+#Integrate
+
+
+INTEGRATE_BIN="/home/scott/s2017/ER_port/bin/Integrate"
+
+for FILE in $FILES; do
+  cd $CURDIR
+  cd $DIR
+  cd $FILE
+  if [ ! -e integrate.$FILE.$VERSION.tar.xz ] ; then
+    rm -rf ./integrate
+    mkdir -p ./integrate
+    cd ./integrate
+    ln -s ../fo ./
+    (
+    NUMPCDS=$(ls -l ./fo/bc/go/globalregistration/kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
+    $INTEGRATE_BIN --pose_traj ./fo/pose.log --seg_traj ./fo/bc/go/globalregistration/kinfu/100-0.log --ctr ./fo/output.ctr --num ${numpcds} --resolution 12 -oni ../oni/office1.oni --length 4.0 --interval 50
+    cd .. && \
+    tar -c ./integrate | xz -9 -T8 >  integrate.$FILE.$VERSION.tar.xz && \
+    cp integrate.$FILE.$VERSION.tar.xz $TESTDATADIR/6_integrate/ &
     ) &
   fi
 done
