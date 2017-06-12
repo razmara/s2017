@@ -1,3 +1,8 @@
+June 8/9:
+    setup and started running a process of GR. (ITS PAINFULLY SLOW)
+    Scripted running chunks of the pipeline and uploading them to the google drive
+    Started porting the ODRMetry part of SPCL to PCL.    
+
 June 7:
     Found the reason of missing flags,
     Attempted a run of GlobalRegistration like we did prior with just the pcds:

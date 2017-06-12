@@ -1,5 +1,15 @@
+SPCL:
+  -Auto exit at end of sequence.
+  - --Camera
+  - --rgbd odometry
+  - --First cloud-bin was black?
 
--Run a test-run of ER.
+SPEED UP GLOBALREGISTRATION:
+  - Multicore
+  - FIND WHAT TAKES SOOOO LONG, (and try to speed it up.)
+
+-Run a test-run of ER. - SLOW OH GOD.
+
 Bring from SPCL to PCL: rgbd odometry, and Camera.
 
 Papers <-> Read them, make some nice summaries.
