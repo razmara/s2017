@@ -1,3 +1,8 @@
+June 13:
+    Added subclass for FragmentOptimizer to work on newer eigens. (Implmented the stubb)
+    Made a new pipeline script, that's easier to use.
+    Got it running up-to Integrate
+
 June 12:
     Fixed a horrible bug that was causing the long run times, now we ahve actual data, and GR runs and finishes.
     Tried to put it through the rest of the pipeline ->
