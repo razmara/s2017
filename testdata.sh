@@ -224,7 +224,7 @@ for FILE in $FILES; do
     (
     NUMPCDS=$(ls -l ./bc/go/globalregistration/kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
     #--registration ../sandbox/reg_output.log 
-    $FO_BIN --slac --rgbdslam ./bc/go/globalregistration/init.log --dir ./bc/go/globalregistration/kinfu/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10 &>fo.run.log.txt && \
+    $FO_BIN --slac --rgbdslam ./bc/go/globalregistration/init.log --dir ./bc/go/globalregistration/kinfu/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10 --registration ./reg_output.log &>fo.run.log.txt && \
     cd .. && \
     tar -c ./fo | xz -9 -T8 >  fo.$FILE.$VERSION.tar.xz && \
     cp fo.$FILE.$VERSION.tar.xz $TESTDATADIR/5_fo/ &
