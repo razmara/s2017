@@ -10,6 +10,7 @@ SET_SAMPLES(){
     SAMPLES="50"
     echo "Setting size of samples to 50. (50 frames per fragment)"
   else
+    echo "Set samples to $1"
     SAMPLES="$1"
   fi
 
@@ -139,7 +140,7 @@ INTEGRATE(){
 
   UGLYHACK
 
-  ARGS=" --pose_traj ./hack/pose.log --seg_traj ./hack/100-0.log --ctr ./hack/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param -oni ../in.oni --length 4.0 --interval "$SAMPLES
+  ARGS=" --pose_traj ./hack/pose.log --seg_traj ./hack/100-0.log --ctr ./hack/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param -oni ../in.oni --length 4.0 --interval $SAMPLES --save_to world.pcd "
   Integrate $ARGS
   
   cd ..
@@ -151,32 +152,32 @@ Pipeline() {
 
   if [ ! -e kinfu.$NAME.tar.xz ]; then
    PCL_KINFU $SAMPELS &>kinfu_log.txt
-   tar -c ./kinfu | xz -9 -T8 > kinfu.$NAME.tar.xz
+   tar -c ./kinfu | xz -9 -T8 > kinfu.$NAME.tar.xz &
   fi
 
   if [ ! -e gr.$NAME.tar.xz ]; then
     GR $SAMPLES &>gr_log.txt
-    tar -c ./gr | xz -9 -T8 > gr.$NAME.tar.xz
+#    tar -c ./gr | xz -9 -T8 > gr.$NAME.tar.xz &
   fi
 
   if [ ! -e go.$NAME.tar.xz ]; then
     GO $SAMPLES &>go_log.txt
-    tar -c ./go | xz -9 -T8 > go.$NAME.tar.xz
+#    tar -c ./go | xz -9 -T8 > go.$NAME.tar.xz &
   fi
   
   if [ ! -e bc.$NAME.tar.xz ]; then
     BC $SAMPLES &>bc_log.txt
-    tar -c ./bc | xz -9 -T8 > bc.$NAME.tar.xz
+#    tar -c ./bc | xz -9 -T8 > bc.$NAME.tar.xz &
   fi
   
   if [ ! -e fo.$NAME.tar.xz ]; then
     FO $SAMPLES &>fo_log.txt
-    tar -c ./fo | xz -9 -T8 > fo.$NAME.tar.xz
+#    tar -c ./fo | xz -9 -T8 > fo.$NAME.tar.xz &
   fi
 
   if [ ! -e integrate.$NAME.tar.xz ]; then
     INTEGRATE $SAMPLES &>integrate_log.txt
-    tar -c ./integrate | xz -9 -T8 > integrate.$NAME.tar.xz
+#    tar -c ./integrate | xz -9 -T8 > integrate.$NAME.tar.xz &
   fi
 
 }
