@@ -1,3 +1,9 @@
+June 28:
+    Implemented the RGBD-odometry
+
+June 15+
+    Playing around with the output of each step, verifying things are working correctly, attempting to generate .pcd's and in general just debugging..
+
 June 13:
     Added subclass for FragmentOptimizer to work on newer eigens. (Implmented the stubb)
     Made a new pipeline script, that's easier to use.

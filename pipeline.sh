@@ -37,7 +37,12 @@ SETUP(){
 }
 
 CDDIR(){
-  cd $DIR
+  if [ $DIR != "" ]; then
+    cd $DIR
+  else
+    echo "DIR NOT SET, CANNOT CD."
+  fi
+
 }
 
 UGLYHACK(){
@@ -75,6 +80,7 @@ PCL_KINFU(){
 }
 
 GR(){
+  CDDIR
   SET_SAMPLES $1
   rm -rf gr
   mkdir -p gr
@@ -86,6 +92,7 @@ GR(){
 }
 
 GO(){
+  CDDIR
     rm -rf go
     mkdir -p go
     cd go
@@ -96,7 +103,7 @@ GO(){
 }
 
 BC(){
-
+  CDDIR
   rm -rf bc
   mkdir -p bc
   cd bc
@@ -113,7 +120,7 @@ BC(){
 }
 
 FO(){
-
+    CDDIR
     rm -rf fo
     mkdir -p fo
     cd fo
@@ -131,6 +138,7 @@ FO(){
 }
 
 INTEGRATE(){
+  CDDIR
   SET_SAMPLES $1
     rm -rf integrate
     mkdir -p integrate

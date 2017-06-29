@@ -16,3 +16,9 @@
 [submodule "ElasticFusion"]
 	path = ElasticFusion
 	url = git@github.com:mp3guy/ElasticFusion.git
+[submodule "FastGlobalRegistration"]
+	path = FastGlobalRegistration
+	url = https://github.com/IntelVCL/FastGlobalRegistration.git
+[submodule "dvo_slam"]
+	path = dvo_slam
+	url = https://github.com/tum-vision/dvo_slam.git
