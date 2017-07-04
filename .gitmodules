@@ -22,3 +22,6 @@
 [submodule "dvo_slam"]
 	path = dvo_slam
 	url = https://github.com/tum-vision/dvo_slam.git
+[submodule "GraphOptimizerTest"]
+	path = GraphOptimizerTest
+	url = https://github.com/Spoonman376/GraphOptimizerTest.git
