@@ -1,0 +1,12 @@
+Global Registration:
+  -Reads in the 100-0.log as a segment_traj
+   -Generates the init.log.. (first set of them identical, then new data.)
+   -Generates the pose_traj, (Based off init_traj..)
+   -Generates result.txt, (Via an almost identical to an already-run methoid..)
+  -Uses PCL's align, and the result-log of kinfu
+  
+
+
+  cleanup: See if possible to remove the do_all(), or merge it.. see if it's different at all.. like wth.
+
+
