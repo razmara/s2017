@@ -110,7 +110,6 @@ BC(){
   ln -s ../go ./
 
   UGLYHACK
-
   ARGS=" --reg_traj ./hack/reg_refine_all.log --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn "
   #ARGS=" --reg_traj ./go/reg_refine_all.log --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn "
   time ( BuildCorrespondence $ARGS )
@@ -148,7 +147,7 @@ INTEGRATE(){
 
   UGLYHACK
 
-  ARGS=" --pose_traj ./hack/pose.log --seg_traj ./hack/100-0.log --ctr ./hack/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param -oni ../in.oni --length 4.0 --interval $SAMPLES --save_to world.pcd "
+  ARGS=" --pose_traj ../fo/pose.log --seg_traj ./hack/100-0.log --ctr ./hack/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param -oni ../in.oni --length 4.0 --interval $SAMPLES --save_to world.pcd "
   Integrate $ARGS
   
   cd ..
@@ -159,8 +158,8 @@ Pipeline() {
   SETUP $1 $2
 
   if [ ! -e kinfu.$NAME.tar.xz ]; then
-   PCL_KINFU $SAMPELS &>kinfu_log.txt
-   tar -c ./kinfu | xz -9 -T8 > kinfu.$NAME.tar.xz &
+   PCL_KINFU $SAMPLES &>kinfu_log.txt
+#   tar -c ./kinfu | xz -9 -T8 > kinfu.$NAME.tar.xz &
   fi
 
   if [ ! -e gr.$NAME.tar.xz ]; then
@@ -190,7 +189,7 @@ Pipeline() {
 
 }
 
-if [ "$1" == "" ]; then
+if [ "$1" == "" ]; then 
   echo "Ye need arguments (The oni file in absolute path)"
 else
   Pipeline $1 $2
