@@ -1,22 +1,17 @@
-SPCL:
-  -Auto exit at end of sequence.
-  - --Camera
-  - --rgbd odometry
-  - --First cloud-bin was black?
 
-SPEED UP GLOBALREGISTRATION:
-  - Multicore
-  - FIND WHAT TAKES SOOOO LONG, (and try to speed it up.)
+Get our own input into the pipeline.
+  -Via revamping the kinfuLS.app to accept a .oni from OpenNI2
+  -Via making an Openni2 .oni to OpenNi .oni converter.
 
--Run a test-run of ER. - SLOW OH GOD.
+Verify the results of kinfu's trajectories:
+  -Make input of a path we know (ie, no moving camera -> mvoe camera left, etc.)
+  -Compair sequences of it to the ref_traj of the virtual data scenes.
 
-Bring from SPCL to PCL: rgbd odometry, and Camera.
+Verify/Understand GraphOptmizer / G2O.
+  -What is it doing, pcd's as edges, and the transformations as verticies?
 
-Papers <-> Read them, make some nice summaries.
+Make usefull results out of GR/GO/BC, and format it for Integrate
 
-OpenNI2 <-> getting pictures & depth pictures, turning on IR light for scanner?
-	-Erik is working on this(?)
-	-NiViewer does this(?)
-	-Many 3rd party things seem to also.
+Make Integrate have an option for handling out-of-order frameID's.
 
 
