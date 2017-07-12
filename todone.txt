@@ -5,12 +5,61 @@ Jul 12:
     -Exporting an OpenNI Player - seems to be deeply encoded into the core library
     -Exporting a depth_device and image_device (node/modules) and then recording those. (They load in via OpenNi2) and recording it to openni1.
 
+NOTE: Since June15, these have all been recorded in a .kra, and the dates have been a little mixed up.
 
-June 28:
-    Implemented the RGBD-odometry
+July 7 ?:
+  Traced out more of the files/filetypes (ie For BuildCorresponence)
+  Looked more into the .oni converter.
 
-June 15+
+July 6 ?: 
+  Looked into removing the cuda requirments
+  Looked into seperate kinfu
+  Started looking into oni <-> oni2 converter
+    -No exsisting implmentation
+    -Not a lot of clear documentation for oni1
+  Meeting
+    -Graph optimizer : Sort/Get output good for integrate
+    -Kinfu Oni2 input
+    -Integrate: Implment particular frames/fragments only.
+      -It has a start_at and --end_at (or something like that)
+      
+
+July 5 ?:
+  Review results of overnight run from yesterday,
+    -Looked into FO with a new solver suggested from the github issues
+      -some do make non-crashing inputs. However still a mess.
+        - FO args: --rigid, --non-rigid , --slac (Some work, some don't)
+  Turned out I had been running in non-RGBD-odometry mode for awhile again!?
+  Looked into making a program to parse the fragments and apply transforms...
+    it's kinda messy, and oddly GO doesn't provide the spanning tree? - And not in order?!
+  Tested the determinisim of kinfu /etc.
+    -Turns out kinfu has a weird time out lock, which if there is no time-out will never start running (or take in input after the file is done)
+    -Set lock timer to 10 seconds to prohibit missing data. (Still runs fast except at start/end)
+    
+
+July 4 ?:
+    I wrote a pcdTransform, as I needed one that worked per frameID (Erik's did not) and a pcdMerge.
+    By hand tested various transformations throughout the pipeline,
+      Found GO keep.log suggested good alignments... but also keeps all of them in some cases...? (office 1)
+    Forwarded trip plans, etc.
+    
+
+June 29 ?:
+    Erik started work on a pcd_transform thing.
+    Finished implmenting RGBD-odometry and getting it to compile/have no link errors.
+    Ran the pipeline in various ways with different data.
+      -Set the timeout higher to avoid dropped frames, which due to integrate not caring about the frameID makes misaligned fragments appear.
+    
+
+June 28 ?:
+    Started Implementing the RGBD-odometry
+
+June 15+ 
     Playing around with the output of each step, verifying things are working correctly, attempting to generate .pcd's and in general just debugging..
+    Fix Ported SPCL reset bugs/etc.
+    Mapped out the various log files created in early pipeline
+    Mapped out RGBD - odometry (Theres lots of it all over (kinfu.cpp, kinfuLS.cpp and another file I forgot.)
+    Looked at Integrate and its arguments and trying to get it to genereate some output from partial data (it can: --ref_traj makes the intergration from just that trajectory file.)
 
 June 13:
     Added subclass for FragmentOptimizer to work on newer eigens. (Implmented the stubb)
