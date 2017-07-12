@@ -39,19 +39,18 @@ main (int argc, char** argv)
   filenames = pcl::console::parse_file_extension_argument (argc, argv, ".pcd");
 
     if (filenames.size () != 3) {
-      showHelp (argv[0]);
+      showHelp (argv[1]);
       return -1;
     } else {
       file_is_pcd = true;
     }
 
+  // Load file | Works with PCD and PLY filesV
   std::vector<pcl::PointCloud<pointType>::Ptr> source_clouds; // (new pcl::PointCloud<pointType> ());
   for(int i=0; i <  filenames.size() -1 ; i++){ //Last one is the output.
-  // Load file | Works with PCD and PLY filesV
  
     pcl::PointCloud<pointType>::Ptr source_cloud  (new pcl::PointCloud<pointType> ());
     source_clouds.push_back(source_cloud);  
-  
 
     if (file_is_pcd) {
       if (pcl::io::loadPCDFile (argv[filenames[i]], *source_cloud) < 0)  {
@@ -75,7 +74,7 @@ main (int argc, char** argv)
   }
 
 
-  pcl::io::savePCDFile("fun.pcd", *result);
+  pcl::io::savePCDFile(argv[filenames[filenames.size()-1]], *result);
   return 0;
 }
 

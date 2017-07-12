@@ -19,32 +19,36 @@ showHelp(char * program_name)
   std::cout << "Usage: " << program_name << " cloud_filename.pcd RGBDTrajectoryFile outFile id1 id2 frame" << std::endl;
   std::cout << "Note: results will also be output into a local folder: transforms" << std::endl;
   std::cout << "-h:  Show this help." << std::endl;
+  std::cout << "-t:  Inverse the matrix." << std::endl;
 }
 
 // This is the main function
 int
 main (int argc, char** argv)
 {
-
+  bool inverse = false;
   // Show help
   if (pcl::console::find_switch (argc, argv, "-h") || pcl::console::find_switch (argc, argv, "--help")) {
     showHelp (argv[0]);
     return 0;
   }
+  if (pcl::console::find_switch (argc, argv, "-t") ){
+    inverse =true;
+  }
 
   //load-in PCD
   pcl::PointCloud<pointType>::Ptr source_cloud (new pcl::PointCloud<pointType> ());
 
-  if (pcl::io::loadPCDFile (argv[0], *source_cloud) < 0)  {
-    std::cout << "Error loading point cloud " << argv[0] << std::endl << std::endl;
-    showHelp (argv[0]);
+  if (pcl::io::loadPCDFile (argv[1], *source_cloud) < 0)  {
+    std::cout << "Error loading point cloud " << argv[1] << std::endl << std::endl;
+    showHelp (argv[1]);
     return -1;
   }
 
 
   //Load-in matrixes /log file.
   RGBDTrajectory traj;
-  traj.LoadFromFile(argv[1]);
+  traj.LoadFromFile(argv[2]);
   
   //Find/get transformation matrix:
   Eigen::Matrix4d *transformation_ = NULL; 
@@ -58,7 +62,7 @@ main (int argc, char** argv)
     }
     for(int i=0; i < traj.data_.size(); i++){
       #define data traj.data_[i]
-      if(data.id1_ == atoi(argv[3]) &&  data.id2_ == atoi(argv[4]) &&  data.frame_ == atoi(argv[5])){
+      if(data.id1_ == atoi(argv[4]) &&  data.id2_ == atoi(argv[5]) &&  data.frame_ == atoi(argv[6])){
         transformation_ = &(data.transformation_);
         break;
       }
@@ -70,6 +74,11 @@ main (int argc, char** argv)
     std::cout << " Transformation matrix is null, aborting!" << endl;
     return -1;
   }
+  
+  if(inverse){
+    *transformation_ = (*transformation_).inverse().eval();
+  }
+
   
   //Apply transformation.
   // Executing the transformation
