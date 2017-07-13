@@ -14,3 +14,9 @@ target_link_libraries (pcdTransfrom ${PCL_LIBRARIES})
 add_executable (pcdMerge pcdMerge.cpp)
 target_link_libraries (pcdMerge ${PCL_LIBRARIES})
 
+add_executable (trajInverse traj_inverse.cpp)
+target_link_libraries (trajInverse ${PCL_LIBRARIES})
+
+add_executable (goSorter goSorter.cpp)
+target_link_libraries (goSorter ${PCL_LIBRARIES})
+
