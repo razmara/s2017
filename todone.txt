@@ -1,4 +1,10 @@
-Jul 12:
+July 13:
+  Started implmenting OpenNI converter
+  Wrote helper programs to test-out chunks of various RGBDtrajectorys.
+    -Used them to test all files of go for output (best is pose.log - the one intended for integrate)
+    -Used them to test all files of bc for output (best is pose.log - the one intended for integrate)
+  
+July 12:
   For the last 3-4 days, looking into implementing/inputting our own input.
   OpenNI2 input : seems to deadlock the program, not sure how/why.
   OpenNI2 -> OpenNI1 converter: Looked into it in various ways:
