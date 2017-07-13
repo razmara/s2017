@@ -1,17 +1,18 @@
+Meeting on monday.
+Bring: Struct sensor, cable, ipad, Kinect
+
+Calculate error of data from ref_traj.txt
+  -Maybe highlights sources of error
+  -Save it from integrate
 
 Get our own input into the pipeline.
-  -Via revamping the kinfuLS.app to accept a .oni from OpenNI2
-  -Via making an Openni2 .oni to OpenNi .oni converter.
+  -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
+  -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
 
 Verify the results of kinfu's trajectories:
-  -Make input of a path we know (ie, no moving camera -> mvoe camera left, etc.)
+  -Make input of a path we know (ie, no moving camera -> move camera left, etc.)
   -Compair sequences of it to the ref_traj of the virtual data scenes.
 
 Verify/Understand GraphOptmizer / G2O.
   -What is it doing, pcd's as edges, and the transformations as verticies?
-
-Make usefull results out of GR/GO/BC, and format it for Integrate
-
-Make Integrate have an option for handling out-of-order frameID's.
-
 
