@@ -8,6 +8,9 @@ Calculate error of data from ref_traj.txt
 Get our own input into the pipeline.
   -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
   -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
+    -Cleanup DepthGenerater
+      -Make Image/IR
+    -Create the companion recording application.
 
 Verify the results of kinfu's trajectories:
   -Make input of a path we know (ie, no moving camera -> move camera left, etc.)
