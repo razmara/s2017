@@ -31,3 +31,4 @@ target_link_libraries (depth ${OPENNI2_LIBRARY})
 
 add_library (oni2input SHARED ExportedDepth.cpp Registration.cpp)
 target_link_libraries(oni2input depth)
+#target_link_libraries(oni2input ${OPENNI_LIBRARY} depth)

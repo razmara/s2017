@@ -25,3 +25,6 @@
 [submodule "GraphOptimizerTest"]
 	path = GraphOptimizerTest
 	url = https://github.com/Spoonman376/GraphOptimizerTest.git
+[submodule "oni_stuff/converter"]
+	path = oni_stuff/converter
+	url = git@github.com:ttoocs/OpenNi2-OpenNi1-.oni-converter.git
