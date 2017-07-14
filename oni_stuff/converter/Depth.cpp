@@ -202,12 +202,6 @@ XnStatus Depth::UpdateData()
   return (XN_STATUS_OK);
 }
 
-
-const void* Depth::GetData()
-{
-  return m_pDepthMap;
-}
-
 XnUInt32 Depth::GetDataSize()
 {
   return (SUPPORTED_X_RES * SUPPORTED_Y_RES * sizeof(XnDepthPixel));
