@@ -8,6 +8,8 @@ Calculate error of data from ref_traj.txt
 Get our own input into the pipeline.
   -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
   -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
+    -Make event based.
+    -Verify number of modes available.
     -Cleanup DepthGenerater
       -Make Image/IR
     -Create the companion recording application.
