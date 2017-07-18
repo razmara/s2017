@@ -1,0 +1,17 @@
+Setting it (my pcl) up on archlinux:
+  -Install base os of arch linux.
+  -Install:
+    -Cuda
+    -Nvidia (untested if this is actually required)
+    -gcc5 (if not already)
+    -From AUR:
+      -openni
+      -openni2
+      -eigen
+      -flann
+      -vtk
+    
+    Note: You need to recompile opencv with gcc5 flags
+    
+    Then use the PKGBUILD and it should work.
+
