@@ -1,3 +1,13 @@
+July 18:
+  Resolved cuda link errors: (NVCC_HOST_COMPILE)
+    -Built PCL
+  Made .oni converter event based (should be more akin to the origonal .oni)
+  Made .oni converter handle imageStreams aswell.
+
+July 17:
+  Got to vancouver, setup PC
+  Got libs, ran into cuda compile/link errors
+
 July 13:
   Started implmenting OpenNI converter
     -Got a semi-decent (still ugly&hacky) depthGenerator.
