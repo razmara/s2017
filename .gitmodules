@@ -28,3 +28,6 @@
 [submodule "oni_stuff/converter"]
 	path = oni_stuff/converter
 	url = git@github.com:ttoocs/OpenNi2-OpenNi1-.oni-converter.git
+[submodule "OpenNI2"]
+	path = OpenNI2
+	url = git@github.com:ttoocs/OpenNI2.git
