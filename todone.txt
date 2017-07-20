@@ -1,3 +1,15 @@
+July 20:
+  Fixed libfreenect2,
+  Made my own branch/merged in openni2 things, tried various branches, researched the issue, etc.
+  Tested Kinfu w/ OpenCV as input. (and fixed various bugs, researched error, confused by cuda.)
+  Meeting
+  
+
+July 19:
+  Portedover/finished main .oni converter,
+    -found out reading an Image frame from a .oni2 file is broken
+    -Started debugging this.
+
 July 18:
   Resolved cuda link errors: (NVCC_HOST_COMPILE)
     -Built PCL
