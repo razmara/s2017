@@ -8,11 +8,19 @@ Calculate error of data from ref_traj.txt
 Get our own input into the pipeline.
   -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
   -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
-    -Make event based.
-    -Verify number of modes available.
-    -Cleanup DepthGenerater
-      -Make Image/IR
+    -Openni2 bug where reading in ImageFrame never returns. (Fails some asserts...)
+      -Work around: Read in the Openni2 stream directly, and save to .oni1 only
+      -Work around: Read in the Openni2 stream, save to another format. (The expose as .oni1 from a re-worked converter.)
+
+    -Verify number of modes available. 
+      -Raw from file (verify recordings are good, (why do I have no image data?))
+      -From OpenNI2 in exposing it to OpenNI1 (Is it actually the RGB?)
+      
+    -Make IR
+    
     -Create the companion recording application.
+
+  
 
 Verify the results of kinfu's trajectories:
   -Make input of a path we know (ie, no moving camera -> move camera left, etc.)
