@@ -31,3 +31,6 @@
 [submodule "OpenNI2"]
 	path = OpenNI2
 	url = git@github.com:ttoocs/OpenNI2.git
+[submodule "libfreenect2"]
+	path = libfreenect2
+	url = git@github.com:ttoocs/libfreenect2
