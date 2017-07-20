@@ -20,7 +20,6 @@ int main(){
   
   openni::OpenNI::setLogMinSeverity(0);
 
-
   r = device.open("in.oni");
 //  r = device.open( openni::ANY_DEVICE ); 
   if (r != openni::STATUS_OK){
@@ -62,10 +61,10 @@ int main(){
     return 1;
   }
 
-  device.getPlaybackControl()->seek(videoStream,32);
+//  device.getPlaybackControl()->seek(videoStream,32);
   
   videoStream.readFrame(&frame);
   
-  std::cout << "A frame was read!" << std::endl;
+  std::cout << "A frame was read! ITS NOT BROKED." << std::endl;
 
 }
