@@ -56,10 +56,13 @@ int main()
   context.Init();
   
   xn::ImageGenerator imgGen;
+  xn::DepthGenerator DGen;  
 
+  nRetVal = DGen.Create(context);
   nRetVal = imgGen.Create(context);
   erroring(nRetVal);  
 
+  nRetVal = DGen.StartGenerating();
   nRetVal = imgGen.StartGenerating();
   erroring(nRetVal);  
 
@@ -72,20 +75,26 @@ int main()
       break;
 
     
-    XnMapOutputMode mode;
-    imgGen.GetMapOutputMode(mode);
-    
+    XnMapOutputMode Imode;
+    XnMapOutputMode Dmode;
+    imgGen.GetMapOutputMode(Imode);
+    DGen.GetMapOutputMode(Dmode);
 
-    int height = mode.nYRes;
-    int width = mode.nXRes;
-    int dataSize = imgGen.GetBytesPerPixel();
+    int Iheight = Imode.nYRes;
+    int Dheight = Dmode.nYRes;
+    int Iwidth = Imode.nXRes;
+    int Dwidth = Dmode.nXRes;
     
-    std::cout << "Height: " << height << ", Width: " << width << ", Size: " << dataSize << std::endl;
-    
-    cv::Mat img = cv::Mat( height, width, CV_8UC3, (void *) imgGen.GetData());
-//    cv::cvtColor(img,img, CV_RGB2BGR);
+    std::cout << "Img: Height: " << Iheight << ", Width: " << Iwidth <<  std::endl;
+  
+    cv::Mat img = cv::Mat( Iheight, Iwidth, CV_8UC3, (void *) imgGen.GetData()); //Color
  
-    cv::imwrite("img"+std::to_string(i)+".jpg", img);
+    cv::imwrite("cImg"+std::to_string(i)+".jpg", img);
+
+    std::cout << "Depth: Height: " << Dheight << ", Width: " << Dwidth <<  std::endl;
+
+    cv::Mat dimg = cv::Mat (Dheight, Dwidth,  CV_8U , (void *) DGen.GetData()); //Depth
+    cv::imwrite("dImg"+std::to_string(i)+".jpg", dimg);
     i++;
   }
 	
