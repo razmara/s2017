@@ -30,6 +30,7 @@
 
 #include <opencv2/opencv.hpp>
 
+
 //---------------------------------------------------------------------------
 // Code
 //---------------------------------------------------------------------------
@@ -62,13 +63,30 @@ int main()
   nRetVal = imgGen.StartGenerating();
   erroring(nRetVal);  
 
-  for(int i=0; i < 10; i++){
+  int i=0;
+  while (true){
     nRetVal = context.WaitOneUpdateAll(imgGen);
     std::cout << i << std::endl;
 
     if(!erroring(nRetVal))
       break;
-        
+
+    
+    XnMapOutputMode mode;
+    imgGen.GetMapOutputMode(mode);
+    
+
+    int height = mode.nYRes;
+    int width = mode.nXRes;
+    int dataSize = imgGen.GetBytesPerPixel();
+    
+    std::cout << "Height: " << height << ", Width: " << width << ", Size: " << dataSize << std::endl;
+    
+    cv::Mat img = cv::Mat( height, width, CV_8UC3, (void *) imgGen.GetData());
+//    cv::cvtColor(img,img, CV_RGB2BGR);
+ 
+    cv::imwrite("img"+std::to_string(i)+".jpg", img);
+    i++;
   }
 	
   context.Release();

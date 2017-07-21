@@ -7,15 +7,21 @@ Calculate error of data from ref_traj.txt
 
 Get our own input into the pipeline.
   -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
+      -Deadlocks
+  -Via opening openCV in kinfuLS
+      -Cuda errors out.
+
   -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
     -Openni2 bug where reading in ImageFrame never returns. (Fails some asserts...)
       -Work around: Read in the Openni2 stream directly, and save to .oni1 only
+        -Segfaults when opening the device
       -Work around: Read in the Openni2 stream, save to another format. (The expose as .oni1 from a re-worked converter.)
+        -Works for image data.
 
     -Verify number of modes available. 
       -Raw from file (verify recordings are good, (why do I have no image data?))
       -From OpenNI2 in exposing it to OpenNI1 (Is it actually the RGB?)
-      
+       
     -Make IR
     
     -Create the companion recording application.
