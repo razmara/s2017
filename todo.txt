@@ -1,42 +1,23 @@
-Input todo's:
-  -Fix black registration (via hack of making depth 0 if no color) - DONE
-  -Fix image registration on the input (Raytrace? - ohgod. Make our own calibration system - No idea how hard. OpenCv? Elastix?)
+TODO:
+Find bug in integrate with _our_ input.
+  -No data! (AGAIN?)
 
-
-Meeting on monday.
-Bring: Struct sensor, cable, ipad, Kinect
+Improve Kinect Image registration:
+  -Raytrace? (bad with noise)
+  -Generic image registration programs?
+  -Understand the driver included one.
 
 Calculate error of data from ref_traj.txt
-  -Maybe highlights sources of error
-  -Save it from integrate
-
-Get our own input into the pipeline.
-  -Via revamping the kinfuLS.app to accept a .oni from OpenNI2 (erik)
-      -Deadlocks
-  -Via opening openCV in kinfuLS
-      -Cuda errors out.
-
-  -Via making an Openni2 .oni to OpenNi .oni converter. (scott)
-    -Openni2 bug where reading in ImageFrame never returns. (Fails some asserts...)
-      -Work around: Read in the Openni2 stream directly, and save to .oni1 only
-        -Segfaults when opening the device
-      -Work around: Read in the Openni2 stream, save to another format. (The expose as .oni1 from a re-worked converter.)
-        -Works for image data.
-
-    -Verify number of modes available. 
-      -Raw from file (verify recordings are good, (why do I have no image data?))
-      -From OpenNI2 in exposing it to OpenNI1 (Is it actually the RGB?)
-       
-    -Make IR
-    
-    -Create the companion recording application.
-
-  
+  -Find the source of error(?)
 
 Verify the results of kinfu's trajectories:
   -Make input of a path we know (ie, no moving camera -> move camera left, etc.)
   -Compair sequences of it to the ref_traj of the virtual data scenes.
+  -Find the source of error(?)
 
 Verify/Understand GraphOptmizer / G2O.
   -What is it doing, pcd's as edges, and the transformations as verticies?
 
+SeperateKinfu: (Erik?)
+  -Cuda-less implmentation of kinfu.
+  -Less depedencies on PCL.
