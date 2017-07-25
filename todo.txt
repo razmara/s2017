@@ -1,3 +1,8 @@
+Input todo's:
+  -Fix black registration (via hack of making depth 0 if no color) - DONE
+  -Fix image registration on the input (Raytrace? - ohgod. Make our own calibration system - No idea how hard. OpenCv? Elastix?)
+
+
 Meeting on monday.
 Bring: Struct sensor, cable, ipad, Kinect
 
