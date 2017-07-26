@@ -9,7 +9,7 @@ bool imageReg = true;
 bool imageSync = true;
 bool OpenNIDebug = false;
 void parseArgs(int argc,char *argv[]){
-  for(int i = 0; i < argc; i++){
+  for(int i = 1; i < argc; i++){
     if (std::string(argv[i]) == "-noReg" || (std::string(argv[i]) == "-noreg" )) {
         imageReg = false;
         break;
@@ -24,6 +24,8 @@ void parseArgs(int argc,char *argv[]){
         OpenNIDebug = true;
     }else if (std::string(argv[i]) == "-noD"){
         OpenNIDebug = false;
+    }else{
+        std::cout << " Unknown arg: " << argv[i] << std::endl;
     }
   }
 }    
