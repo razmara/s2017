@@ -11,7 +11,7 @@ find_package(Boost REQUIRED COMPONENTS filesystem)
 
 add_definitions(
   -g
-  -O3
+  -O0
 )
 
 set(
