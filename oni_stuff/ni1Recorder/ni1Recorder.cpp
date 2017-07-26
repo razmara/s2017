@@ -28,8 +28,6 @@
 
 #include <iostream>
 
-
-
 //---------------------------------------------------------------------------
 // Code
 //---------------------------------------------------------------------------
@@ -75,11 +73,19 @@ int main()
   
   nRetVal = recorder.AddNodeToRecording(imgGen);
   erroring(nRetVal);  
-  
+ 
+  std::cout << "Starting." << std::endl; 
 
+/*
+  nRetVal = recorder.start();
+  erroring(nRetVal);  
   nRetVal = DGen.StartGenerating();
   erroring(nRetVal);  
   nRetVal = imgGen.StartGenerating();
+  erroring(nRetVal);  
+*/
+
+  nRetVal = context.StartGeneratingAll();
   erroring(nRetVal);  
 
   //xnOSSleep(10000);
@@ -88,11 +94,15 @@ int main()
 // /*
   int i=0;
   while (true){
-    nRetVal = context.WaitAndUpdateAll();
-    std::cout << i << std::endl;
+    nRetVal = context.WaitAnyUpdateAll();
+//    nRetVal = context.WaitAndUpdateAll();
+    recorder.Record();
+    std::cout << "Frame: " << i << std::endl;
 
-    if(!erroring(nRetVal))
+    if(!erroring(nRetVal)){
+      std::cout << "Error, breaking." << std::endl;
       break;
+    }
 //
 //    XnMapOutputMode Imode;
 //    XnMapOutputMode Dmode;
