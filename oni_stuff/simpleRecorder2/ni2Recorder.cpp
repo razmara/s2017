@@ -7,6 +7,7 @@
 
 bool imageReg = true;
 bool imageSync = true;
+bool OpenNIDebug = false;
 void parseArgs(int argc,char *argv[]){
   for(int i = 0; i < argc; i++){
     if (std::string(argv[i]) == "-noReg" || (std::string(argv[i]) == "-noreg" )) {
@@ -19,16 +20,28 @@ void parseArgs(int argc,char *argv[]){
         imageSync = true;
     }else if (std::string(argv[i]) == "-nosync"){
         imageSync = false;
+    }else if (std::string(argv[i]) == "-d"){
+        OpenNIDebug = true;
+    }else if (std::string(argv[i]) == "-noD"){
+        OpenNIDebug = false;
     }
   }
 }    
 
 int main(int argc, char *argv[])
 {
+  std::cout << "we" << std::endl;
   parseArgs(argc,argv);
 
   openni::OpenNI::initialize();
 
+
+  //MAX DEBUG
+  if(OpenNIDebug){
+    openni::OpenNI::setLogConsoleOutput (TRUE);
+    openni::OpenNI::setLogMinSeverity(0);
+  }
+  
   openni::Status r;
 
   openni::Device device;
@@ -48,24 +61,13 @@ int main(int argc, char *argv[])
     std::cout << "OpenNi2 create stream failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
 //    return XN_STATUS_DEVICE_NOT_CONNECTED;
   }
-
-  r = image.start();
-  if (r != openni::STATUS_OK){
-    std::cout << "OpenNi2 start stream  failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
-//    return XN_STATUS_DEVICE_NOT_CONNECTED;
-  }
-
+  
   r = depth.create(device, openni::SENSOR_DEPTH);
   if (r != openni::STATUS_OK){
     std::cout << "OpenNi2 create stream failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
 //    return XN_STATUS_DEVICE_NOT_CONNECTED;
   }
 
-  r = depth.start();
-  if (r != openni::STATUS_OK){
-    std::cout << "OpenNi2 start stream  failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
-//    return XN_STATUS_DEVICE_NOT_CONNECTED;
-  }
 
   if(imageReg){
     r = device.setImageRegistrationMode(openni::IMAGE_REGISTRATION_DEPTH_TO_COLOR);
@@ -75,8 +77,22 @@ int main(int argc, char *argv[])
   if(imageSync){
     r = device.setDepthColorSyncEnabled(true);
     if (r != openni::STATUS_OK)
-      std::cout << "OpenNi2 Depth Color Sync  failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
+      std::cout << "OpenNi2 Depth Color Sync  failed: " << r << " : " <<  openni::OpenNI::getExtendedError() << std::endl;
   }
+
+
+  r = image.start();
+  if (r != openni::STATUS_OK){
+    std::cout << "OpenNi2 start stream  failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
+//    return XN_STATUS_DEVICE_NOT_CONNECTED;
+  }
+
+  r = depth.start();
+  if (r != openni::STATUS_OK){
+    std::cout << "OpenNi2 start stream  failed: " <<  openni::OpenNI::getExtendedError() << std::endl;
+//    return XN_STATUS_DEVICE_NOT_CONNECTED;
+  }
+
 
 
   openni::VideoFrameRef dFrame, iFrame;
@@ -91,7 +107,6 @@ int main(int argc, char *argv[])
     
     depth.readFrame(&dFrame);
     image.readFrame(&iFrame);
-  
 
     int iH = iFrame.getHeight();
     int iW = iFrame.getWidth();
