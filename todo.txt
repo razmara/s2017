@@ -1,6 +1,5 @@
 TODO:
-Find bug in integrate with _our_ input.
-  -No data! (AGAIN?)
+Find the bug within the pipeline!
 
 Improve Kinect Image registration:
   -Raytrace? (bad with noise)
