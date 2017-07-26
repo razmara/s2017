@@ -1,3 +1,25 @@
+July 26:
+  Fixed integrates issues with input of depth frames...
+    -Was reading them in wrong.
+  
+
+July 25:
+  Ran static data through pipeline:
+    -Takes awhile (GR doesn't like it)
+    -Integrate seems.. to offset things weirdly for no reason... 
+  Looked into new Image Registration-esk things for kinect input.
+  
+
+July 24:
+  Ran our own data through kinfu:
+    -Depth/Image registration is poor, and has weird resolutions. 
+    -Fixed the "no-data" chunk by putting depth=0 when there is no color for that image.
+    -RGBD-odometry requires the data to be 640x480.
+  Looked into how Kinect manages image registration (It didn't make sense to me)  
+
+July 21:
+  Got kinfu to accept our own images via using OpenCV saved images.
+
 July 20:
   Fixed libfreenect2,
   Made my own branch/merged in openni2 things, tried various branches, researched the issue, etc.
