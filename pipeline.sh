@@ -74,7 +74,7 @@ PCL_KINFU(){
   rm -rf kinfu
   mkdir -p kinfu
   cd kinfu
-  PCL_ARGS=" -r -ic -sd 10 -oni ../in.oni -vs 4 --fragment "$SAMPLES" --rgbd_odometry --record_log ./100-0.log --camera ../cam.param"
+  PCL_ARGS=" -r -ic -sd 10 -oni ../ -vs 4 --fragment "$SAMPLES" --rgbd_odometry --record_log ./100-0.log --camera ../cam.param"
   time ( pcl_kinfu_largeScale $PCL_ARGS )
   cd ..
 }
@@ -85,8 +85,7 @@ GR(){
   rm -rf gr
   mkdir -p gr
   cd gr
-  ln -s ../kinfu ./
-  ARGS=" ./kinfu/ ./kinfu/100-0.log $SAMPLES"
+  ARGS=" ../kinfu/ ../kinfu/100-0.log $SAMPLES"
   time ( GlobalRegistration $ARGS )
   cd ..
 }
@@ -96,8 +95,7 @@ GO(){
     rm -rf go
     mkdir -p go
     cd go
-    ln -s ../gr ./
-  ARGS="-w 100 --odometry ./gr/odometry.log --odometryinfo ./gr/odometry.info --loop ./gr/result.txt --loopinfo ./gr/result.info --pose ./pose.log --keep keep.log --refine ./reg_refine_all.log"
+  ARGS="-w 100 --odometry ../gr/odometry.log --odometryinfo ../gr/odometry.info --loop ../gr/result.txt --loopinfo ../gr/result.info --pose ./pose.log --keep keep.log --refine ./reg_refine_all.log"
   time ( GraphOptimizer $ARGS )
     cd ..
 }
@@ -107,7 +105,6 @@ BC(){
   rm -rf bc
   mkdir -p bc
   cd bc
-  ln -s ../go ./
 
   UGLYHACK
   ARGS=" --reg_traj ./hack/reg_refine_all.log --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn "
@@ -123,13 +120,12 @@ FO(){
     rm -rf fo
     mkdir -p fo
     cd fo
-    ln -s ../bc ./
-  NUMPCDS=$(ls -l ./bc/go/gr/kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
+  NUMPCDS=$(ls -l ../kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
   
   UGLYHACK
  
-  ARGS=" --slac --rgbdslam ./hack/init.log --registration ./hack/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
-  #ARGS=" --slac --rgbdslam ./bc/go/gr/init.log --registration ./bc/reg_output.log --dir ./bc/go/gr/kinfu --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
+#  ARGS=" --slac --rgbdslam ./hack/init.log --registration ./hack/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
+  ARGS=" --slac --rgbdslam ../gr/init.log --registration ../bc/reg_output.log --dir ../kinfu --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
 
   time ( FragmentOptimizer $ARGS )
   cd ..
@@ -143,11 +139,11 @@ INTEGRATE(){
     mkdir -p integrate
     cd integrate
     ln -s ../fo ./
-  NUMPCDS=$(ls -l ./fo/bc/go/gr/kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
+  NUMPCDS=$(ls -l ../kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
 
   UGLYHACK
 
-  ARGS=" --pose_traj ../fo/pose.log --seg_traj ./hack/100-0.log --ctr ./hack/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param -oni ../in.oni --length 4.0 --interval $SAMPLES --save_to world.pcd "
+  ARGS=" --pose_traj ../fo/pose.log --seg_traj ../kinfu/100-0.log --ctr ../fo/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param --oni_file ../ --length 4.0 --interval $SAMPLES --save_to world.pcd "
   Integrate $ARGS
   
   cd ..
