@@ -1,21 +1,12 @@
 TODO:
-Find the bug within the pipeline!
+
+Improve Kinect intrisics:
+  (Getting other device intrinsics aswell?)
 
 Improve Kinect Image registration:
   -Raytrace? (bad with noise)
   -Generic image registration programs?
   -Understand the driver included one.
-
-Calculate error of data from ref_traj.txt
-  -Find the source of error(?)
-
-Verify the results of kinfu's trajectories:
-  -Make input of a path we know (ie, no moving camera -> move camera left, etc.)
-  -Compair sequences of it to the ref_traj of the virtual data scenes.
-  -Find the source of error(?)
-
-Verify/Understand GraphOptmizer / G2O.
-  -What is it doing, pcd's as edges, and the transformations as verticies?
 
 SeperateKinfu: (Erik?)
   -Cuda-less implmentation of kinfu.
