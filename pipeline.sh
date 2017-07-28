@@ -67,6 +67,10 @@ ER_HELP(){
   
   echo "or PIPELINE"
 
+  echo "Afterwards, run pcl_kinfu_largeScale_mesh_output <filename>"
+  echo " Then in meshlab, import all of them, merge (removing verts/faces), and export."
+
+
 }
 PCL_KINFU(){
   CDDIR
