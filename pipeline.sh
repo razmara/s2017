@@ -129,7 +129,7 @@ FO(){
   UGLYHACK
  
 #  ARGS=" --slac --rgbdslam ./hack/init.log --registration ./hack/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
-  ARGS=" --slac --rgbdslam ../gr/init.log --registration ../bc/reg_output.log --dir ../hack --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
+  ARGS=" --slac --rgbdslam ../gr/init.log --registration ../bc/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
 
   time ( FragmentOptimizer $ARGS )
   cd ..
