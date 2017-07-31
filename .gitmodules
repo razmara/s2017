@@ -34,3 +34,9 @@
 [submodule "libfreenect2"]
 	path = libfreenect2
 	url = git@github.com:ttoocs/libfreenect2
+[submodule "spcl"]
+	path = spcl
+	url = https://github.com/qianyizh/StanfordPCL.git
+[submodule "SeperateKinfu"]
+	path = SeperateKinfu
+	url = git@github.com:ttoocs/SeperateKinfu.git

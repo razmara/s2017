@@ -11,3 +11,8 @@ Improve Kinect Image registration:
 SeperateKinfu: (Erik?)
   -Cuda-less implmentation of kinfu.
   -Less depedencies on PCL.
+
+SeperateKinfu: (Scott)
+  -Remove it from PCL, leave in PCL-depndencies/etc.
+  -Allows it to compile(?)
+
