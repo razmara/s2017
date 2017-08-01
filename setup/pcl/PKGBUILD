@@ -24,6 +24,8 @@ depends=(
 	python2
 	libxt
 	openmpi
+  cuda
+  openni2-git
 )
 makedepends=(cmake git)
 #source=(git+https://github.com/PointCloudLibrary/pcl)
