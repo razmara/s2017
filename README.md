@@ -1,3 +1,4 @@
+## What is this
 This is my (Scott Saunders) collection of things regarding summer 2017 research.
 
 This is the main-level work directory for me during the summer 2017 research project. The folders at the top level are for my commonly used programs/utilities/scripts/text files.
