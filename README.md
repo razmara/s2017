@@ -1,17 +1,14 @@
 This is my (Scott Saunders) collection of things regarding summer 2017 research.
 
-I use git-submodules for linking to other git-repos, (I don't usually update the references included in this branch, I just use it to initalize them.)
-
-Quick use:
-1_  cd ./someFolderThatIsAGitSubmodule
-2_  git submodule init ./
-3_  git submodule update --remote ./
-4)  git checkout master 
-5_  then use it like a normal git. (Note: do not add in the changed refrences in the s2017 git, as that _can_ cause data loss in some cases.)
-
-Note:
-
 This is the main-level work directory for me during the summer 2017 research project. The folders at the top level are for my commonly used programs/utilities/scripts/text files.
+
+Most of the directories here are git submodules, linking to other gits.
+Submodule Quick use:
+1. cd ./someFolderThatIsAGitSubmodule
+2. git submodule init ./
+3. git submodule update --remote ./
+4. git checkout master ./
+5. Then use that directory as a regular git directory.
 
 Highlights (files):
   todo.txt, is my todo,
