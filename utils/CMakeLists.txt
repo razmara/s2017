@@ -20,3 +20,4 @@ target_link_libraries (trajInverse ${PCL_LIBRARIES})
 add_executable (goSorter goSorter.cpp)
 target_link_libraries (goSorter ${PCL_LIBRARIES})
 
+add_executable (local2Global local_to_global.cpp)

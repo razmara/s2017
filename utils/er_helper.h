@@ -50,10 +50,10 @@ struct RGBDTrajectory {
 		for ( int i = 0; i < ( int )data_.size(); i++ ) {
 			Eigen::Matrix4d & trans = data_[ i ].transformation_;
 			fprintf( f, "%d\t%d\t%d\n", data_[ i ].id1_, data_[ i ].id2_, data_[ i ].frame_ );
-			fprintf( f, "%.8f %.8f %.8f %.8f\n", trans(0,0), trans(0,1), trans(0,2), trans(0,3) );
-			fprintf( f, "%.8f %.8f %.8f %.8f\n", trans(1,0), trans(1,1), trans(1,2), trans(1,3) );
-			fprintf( f, "%.8f %.8f %.8f %.8f\n", trans(2,0), trans(2,1), trans(2,2), trans(2,3) );
-			fprintf( f, "%.8f %.8f %.8f %.8f\n", trans(3,0), trans(3,1), trans(3,2), trans(3,3) );
+			fprintf( f, "%.32f %.32f %.32f %.32f\n", trans(0,0), trans(0,1), trans(0,2), trans(0,3) );
+			fprintf( f, "%.32f %.32f %.32f %.32f\n", trans(1,0), trans(1,1), trans(1,2), trans(1,3) );
+			fprintf( f, "%.32f %.32f %.32f %.32f\n", trans(2,0), trans(2,1), trans(2,2), trans(2,3) );
+			fprintf( f, "%.32f %.32f %.32f %.32f\n", trans(3,0), trans(3,1), trans(3,2), trans(3,3) );
 		}
 		fclose( f );
 	}
@@ -107,12 +107,12 @@ struct RGBDInformation {
 		for ( int i = 0; i < ( int )data_.size(); i++ ) {
 			InformationMatrix & info = data_[ i ].information_;
 			fprintf( f, "%d\t%d\t%d\n", data_[ i ].id1_, data_[ i ].id2_, data_[ i ].frame_ );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(0,0), info(0,1), info(0,2), info(0,3), info(0,4), info(0,5) );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(1,0), info(1,1), info(1,2), info(1,3), info(1,4), info(1,5) );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(2,0), info(2,1), info(2,2), info(2,3), info(2,4), info(2,5) );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(3,0), info(3,1), info(3,2), info(3,3), info(3,4), info(3,5) );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(4,0), info(4,1), info(4,2), info(4,3), info(4,4), info(4,5) );
-			fprintf( f, "%.8f %.8f %.8f %.8f %.8f %.8f\n", info(5,0), info(5,1), info(5,2), info(5,3), info(5,4), info(5,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(0,0), info(0,1), info(0,2), info(0,3), info(0,4), info(0,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(1,0), info(1,1), info(1,2), info(1,3), info(1,4), info(1,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(2,0), info(2,1), info(2,2), info(2,3), info(2,4), info(2,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(3,0), info(3,1), info(3,2), info(3,3), info(3,4), info(3,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(4,0), info(4,1), info(4,2), info(4,3), info(4,4), info(4,5) );
+			fprintf( f, "%.32f %.32f %.32f %.32f %.32f %.32f\n", info(5,0), info(5,1), info(5,2), info(5,3), info(5,4), info(5,5) );
 		}
 		fclose( f );
 	}
