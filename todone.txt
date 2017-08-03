@@ -1,7 +1,37 @@
+
+Aug 3:
+  regrouped/organized my things.
+
+Note: July26 - Aug2 is best-guess, there was a lot of misc researching occuring during the whole time that isn't too well documented.
+
+Aug 2:
+  Meeting w/ Sunny,zenaib,erik
+  Meeting w/ zenaib,erik,brian
+    -Sterio vision problem for image reg.
+  Tested/tryed to quickly implment a system for getting per-frame transofrmations with OpenCV:
+    -OpenCV wants it more complex than I wanted to spend my time on
+  Researshed Camera Intrinsics/extriniscs
+
+Aug 1:
+  Everything broked, spent most the day recompiling things and fixing things.
+    -Don't run updates.
+  Attempted new camera parameters to see if they work better.
+
+July 31:
+  Seperate kinfu, testing with better kinect parameters.
+  Found bug in fragmentOptimizer: if a filehas two few correspondences, it doesn't load... and then it's generaly not positive-semi-definite.
+
+July 28:
+  Ran the pipeline, compaired results, was happy.
+  Ran pipeline with our own data... seemed poor.
+
+July 27:
+  Looked into storing camera intrinsics/getting them/loading them.
+  Looked at libfreenect2's code.
+  
 July 26:
   Fixed integrates issues with input of depth frames...
     -Was reading them in wrong.
-  
 
 July 25:
   Ran static data through pipeline:
