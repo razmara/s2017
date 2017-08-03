@@ -14,13 +14,13 @@
 	path = pcl
 	url = git@github.com:ttoocs/pcl.git
 [submodule "ElasticFusion"]
-	path = ElasticFusion
+	path = misc/related_projects/ElasticFusion
 	url = git@github.com:mp3guy/ElasticFusion.git
 [submodule "FastGlobalRegistration"]
-	path = FastGlobalRegistration
+	path = misc/related_projects/FastGlobalRegistration
 	url = https://github.com/IntelVCL/FastGlobalRegistration.git
 [submodule "dvo_slam"]
-	path = dvo_slam
+	path = misc/related_projects/dvo_slam
 	url = https://github.com/tum-vision/dvo_slam.git
 [submodule "GraphOptimizerTest"]
 	path = GraphOptimizerTest

@@ -1,9 +1,0 @@
-
-
-//Part of redwood/ElasticReconstruction:
-
-http://redwood-data.org/indoor/tutorial.html
-http://qianyi.info/scene.html
-
-//A fork of redwood/ER:
-http://qianyi.info/scene.html
