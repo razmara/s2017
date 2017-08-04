@@ -7,6 +7,12 @@ updateSub(){
   git submodule update --remote ./
 }
 
+echo "Flann"
+cd $MASTERDIR
+cd setup/flann
+makepkg -s -i
+
+
 echo "OpenNI2"
 cd $MASTERDIR
 cd OpenNI2
