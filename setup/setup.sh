@@ -2,17 +2,21 @@
 
 MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 
+#Setup CCache
+PATH="/usr/lib/ccache/bin/:$PATH"
+
+sh pacman.sh
+
 updateSub(){
   git submodule init ./
   git submodule update --remote ./
 }
 
-#echo "Apacman"
-#sudo pacman -S --needed --asdeps jshon
-#cd /tmp
-#curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
-#sudo bash ./apacman -S apacman --noconfirm
-#apacman -S apacman-deps --noconfirm
+echo "Apacman"
+cd /tmp
+curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
+sudo bash ./apacman -S apacman --noconfirm
+apacman -S apacman-deps --noconfirm
 
 echo "Flann"
 cd $MASTERDIR
@@ -41,6 +45,8 @@ cd $MASTERDIR
 cd setup/pcl
 makepkg -s -i -f
 
+echo "G2O (for ER)"
+apacman -S g2o-git --noconfirm                                                                                                                      
 echo "ER"
 cd $MASTERDIR
 cd ER_port
