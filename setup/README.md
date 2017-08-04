@@ -12,6 +12,5 @@ I use both for setting it up, pacman should be more/less replaceable with any ot
 1. Get a Arch-linux install (The wiki is good for this). Arch linux derivatives should also work.
 2. Install git and helpfull commands: `sudo pacman -S git openssh sudo`
 3. Clone this repo: `git@github.com:ttoocs/s2017.git` (Note: to use the git@ urls, (which is what I use), you need to setup your ssh-key with github. `ssh-keygen` generates the key in ~/.ssh/.
-4. Change to the s2017/setup
-6. Run `setup.sh` - This will first install all the basic packages, then install all the local/forked packages. (ER/PCL/libfreenect2/openni2/
+6. Run `s2017/setup/setup.sh` - This will first install all the basic packages, then install all the local/forked packages. (All but ER are system-wide installed)
 
