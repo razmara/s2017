@@ -2,6 +2,11 @@
 
 MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 
+#Setup CCache
+PATH="/usr/lib/ccache/bin/:$PATH"
+
+sh pacman.sh
+
 updateSub(){
   git submodule init ./
   git submodule update --remote ./
