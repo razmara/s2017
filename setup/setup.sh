@@ -12,11 +12,19 @@ updateSub(){
   git submodule update --remote ./
 }
 
+#echo "Apacman"
+#sudo pacman -S --needed --asdeps jshon
+#cd /tmp
+#curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
+#sudo bash ./apacman -S apacman --noconfirm
+#apacman -S apacman-deps --noconfirm
+
 echo "Flann"
 cd $MASTERDIR
-cd setup/flann
-makepkg -s -i
-
+cd setup/flann			#Use local files to get it.
+makepkg -s -i	
+#apacman -S flann --noconfirm  #Use Apacman to get it
+#makepkg -s -i -f
 
 echo "OpenNI2"
 cd $MASTERDIR
@@ -24,19 +32,19 @@ cd OpenNI2
 updateSub
 git checkout devmerge
 cd aur
-makepkg -s -i
+makepkg -s -i -f
 
 echo "LibFreenect2"
 cd $MASTERDIR
 cd libfreenect2
 updateSub
 cd aur
-makepkg -s -i
+makepkg -s -i -f
+
 
 echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
-makepkg -s -i
 
 echo "ER"
 cd $MASTERDIR
