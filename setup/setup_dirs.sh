@@ -13,22 +13,19 @@ cd OpenNI2
 updateSub
 git checkout devmerge
 cd aur
-makepkg
-sudo pacman -U *.pkg.tar.xz 
+makepkg -s -i
 
 echo "LibFreenect2"
 cd $MASTERDIR
 cd libfreenect2
 updateSub
 cd aur
-makepkg
-sudo pacman -U *.pkg.tar.xz 
+makepkg -s -i
 
 echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
-makepkg
-sudo pacman -U *.pkg.tar.xz
+makepkg -s -i
 
 echo "ER"
 cd $MASTERDIR
