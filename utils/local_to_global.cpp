@@ -5,17 +5,25 @@
 int
 main (int argc, char** argv)
 {
+  int start=0;
+  int end=-1;
+
+  if(argc >= 4){
+    start = atoi(argv[3]);
+    end = atoi(argv[4]);
+  }
+
   RGBDTrajectory traj;
   traj.LoadFromFile(argv[1]);
   
+  int i = start;
   RGBDTrajectory out;
-  out.data_.push_back(traj.data_[0]);
+  out.data_.push_back(traj.data_[i++]); //Push and inc.
    
-  for(int i=1; i < traj.data_.size(); i++){
+  while( i < traj.data_.size() && (end != -1 || i < end)){
     out.data_.push_back(traj.data_[i]);
     out.data_[i].transformation_ = (out.data_[i-1].transformation_ * out.data_[i].transformation_ );
-
-//    traj.data_[i].transformation_ = traj.data_[i].transformation_.inverse().eval();
+    i++;
   }
 
   out.SaveToFile(argv[2]);
