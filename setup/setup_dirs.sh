@@ -1,19 +1,14 @@
 #!/bin/bash
 
-if [ ! -e setup_dirs.sh ] ; then
-  echo "Please run it from local directory."
-  exit
-fi
-
-cd ..
-
-MASTERDIR=`pwd`
+MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 
 updateSub(){
   git submodule init ./
   git submodule update --remote ./
 }
 
+echo "OpenNI2"
+cd $MASTERDIR
 cd OpenNI2
 updateSub
 git checkout devmerge
@@ -21,6 +16,7 @@ cd aur
 makepkg
 sudo pacman -U *.pkg.tar.xz 
 
+echo "LibFreenect2"
 cd $MASTERDIR
 cd libfreenect2
 updateSub
@@ -28,11 +24,13 @@ cd aur
 makepkg
 sudo pacman -U *.pkg.tar.xz 
 
+echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
 makepkg
 sudo pacman -U *.pkg.tar.xz
 
+echo "ER"
 cd $MASTERDIR
 cd ER_port
 mkdir build
