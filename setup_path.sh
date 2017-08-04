@@ -9,5 +9,5 @@ PATH=$DIR/oni_stuff/ni2Recorder/build:$PATH
 PATH=$DIR/oni_stuff/ni1Recorder/build:$PATH
 PATH=$DIR/oni_stuff/simpleReader1/build:$PATH
 PATH=$DIR/oni_stuff/simpleReader2/build:$PATH
-PATH=$DIR/utils/build/bin:$PATH
+PATH=$DIR/utils/build:$PATH
 DIR=OLDDIR
