@@ -7,12 +7,19 @@ updateSub(){
   git submodule update --remote ./
 }
 
-echo "Apacman"
-sudo pacman -S --needed --asdeps jshon
-cd /tmp
-curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
-sudo bash ./apacman -S apacman --noconfirm
-apacman -S apacman-deps --noconfirm
+#echo "Apacman"
+#sudo pacman -S --needed --asdeps jshon
+#cd /tmp
+#curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
+#sudo bash ./apacman -S apacman --noconfirm
+#apacman -S apacman-deps --noconfirm
+
+echo "Flann"
+cd $MASTERDIR
+cd setup/flann			#Use local files to get it.
+makepkg -s -i	
+#apacman -S flann --noconfirm  #Use Apacman to get it
+#makepkg -s -i -f
 
 echo "OpenNI2"
 cd $MASTERDIR
@@ -30,12 +37,9 @@ cd aur
 makepkg -s -i -f
 
 
-
 echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
-apacman -S flann --noconfirm
-makepkg -s -i -f
 
 echo "ER"
 cd $MASTERDIR
