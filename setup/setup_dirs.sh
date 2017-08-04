@@ -19,7 +19,6 @@ cd $MASTERDIR
 cd setup/flann			#Use local files to get it.
 makepkg -s -i	
 #apacman -S flann --noconfirm  #Use Apacman to get it
-#makepkg -s -i -f
 
 echo "OpenNI2"
 cd $MASTERDIR
@@ -40,6 +39,7 @@ makepkg -s -i -f
 echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
+makepkg -s -i -f
 
 echo "ER"
 cd $MASTERDIR

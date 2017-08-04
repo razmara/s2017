@@ -6,7 +6,7 @@
 # Contributor: lubosz
 
 pkgname=pcl-git
-pkgver=r10099.ed993b5d0
+pkgver=r10115.0cbc680ac
 pkgrel=1
 pkgdesc="a standalone, large scale, open project for 2D/3D image and point cloud processing"
 arch=(i686 x86_64)
