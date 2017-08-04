@@ -40,3 +40,6 @@
 [submodule "SeperateKinfu"]
 	path = SeperateKinfu
 	url = git@github.com:ttoocs/SeperateKinfu.git
+[submodule "openCV_Traj"]
+	path = openCV_Traj
+	url = git@github.com:ttoocs/openCV_Traj.git
