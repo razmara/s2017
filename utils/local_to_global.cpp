@@ -19,8 +19,9 @@ main (int argc, char** argv)
   int i = start;
   RGBDTrajectory out;
   out.data_.push_back(traj.data_[i++]); //Push and inc.
-   
-  while( i < traj.data_.size() && (end != -1 || i < end)){
+  
+ 
+  while( i < traj.data_.size() && (end == -1 || i < end)){
     out.data_.push_back(traj.data_[i]);
     out.data_[i].transformation_ = (out.data_[i-1].transformation_ * out.data_[i].transformation_ );
     i++;
