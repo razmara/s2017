@@ -12,12 +12,11 @@ updateSub(){
   git submodule update --remote ./
 }
 
-#echo "Apacman"
-#sudo pacman -S --needed --asdeps jshon
-#cd /tmp
-#curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
-#sudo bash ./apacman -S apacman --noconfirm
-#apacman -S apacman-deps --noconfirm
+echo "Apacman"
+cd /tmp
+curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
+sudo bash ./apacman -S apacman --noconfirm
+apacman -S apacman-deps --noconfirm
 
 echo "Flann"
 cd $MASTERDIR
@@ -46,6 +45,8 @@ echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
 
+echo "G2O (for ER)"
+apacman -S g2o-git --noconfirm                                                                                                                      
 echo "ER"
 cd $MASTERDIR
 cd ER_port
