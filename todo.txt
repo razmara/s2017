@@ -1,4 +1,5 @@
 TODO:
+Document everything I know:
 
 Improve Kinect intrisics:
   (Getting other device intrinsics aswell?)

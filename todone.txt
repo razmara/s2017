@@ -1,6 +1,13 @@
+Aug 4:
+  Reconfigued my system to be more user-friendly
+  Tested setup scripts
+  Added misc. documentation.
 
 Aug 3:
   regrouped/organized my things.
+  -Made setup, reorganzed all the stuff.
+  -Made a simple path-finding/generator from OpenCV's image tracing utilities.
+  -Made a convert local to global utility (for converting OpenCV's per-frame transforms.)
 
 Note: July26 - Aug2 is best-guess, there was a lot of misc researching occuring during the whole time that isn't too well documented.
 
