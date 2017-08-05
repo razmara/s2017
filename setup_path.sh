@@ -10,4 +10,5 @@ PATH=$DIR/oni_stuff/ni1Recorder/build:$PATH
 PATH=$DIR/oni_stuff/simpleReader1/build:$PATH
 PATH=$DIR/oni_stuff/simpleReader2/build:$PATH
 PATH=$DIR/utils/build:$PATH
+PATH=$DIR/openCV_Traj:$PATH
 DIR=OLDDIR

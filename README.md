@@ -29,7 +29,7 @@ Most of the directories here are git submodules, linking to other gits.
  *   GraphOptimizerTest - Eriks GO-tester.
  *   StSTK - Structure SDK
  *   3D-re - Erik's 3D-reconstruction program (it just records data.)
-    
+ *   openCV_Traj - A simple program (and shell files) for using OpenCV to generate inital trajectories.    
 # Directories:
  *   setup - my partal setup scripts.
  *   misc - misc programs/related projects.
