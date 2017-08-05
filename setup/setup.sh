@@ -5,7 +5,7 @@ MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 #Setup CCache
 PATH="/usr/lib/ccache/bin/:$PATH"
 
-sudo sh pacman.sh
+sudo sh $MASTERDIR/setup/pacman.sh
 
 updateSub(){
   git submodule init ./
@@ -47,9 +47,11 @@ makepkg -s -i -f
 
 echo "G2O (for ER)"
 apacman -S g2o-git --noconfirm                                                                                                                      
+
 echo "ER"
 cd $MASTERDIR
 cd ER_port
+updateSub
 mkdir build
 cd build
 cmake ../
