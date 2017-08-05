@@ -1,8 +1,11 @@
 
-export PCL_BIN="/home/scott/pcl_merging/pcl_copyin_funcs/build/bin"
-export ER_BIN="/home/scott/s2017/ER_port/bin"
+ER_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/ER_port/bin
 
-export PATH=$PCL_BIN:$ER_BIN:$PATH
+export PATH=$ER_DIR:$PATH
+#export PCL_BIN="/home/scott/pcl_merging/pcl_copyin_funcs/build/bin"
+#export ER_BIN="/home/scott/s2017/ER_port/bin"
+
+#export PATH=$PCL_BIN:$ER_BIN:$PATH
 
 
 SET_SAMPLES(){
