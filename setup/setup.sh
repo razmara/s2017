@@ -52,6 +52,7 @@ echo "ER"
 cd $MASTERDIR
 cd ER_port
 updateSub
+git checkout IntegrateMerged
 mkdir build
 cd build
 cmake ../
