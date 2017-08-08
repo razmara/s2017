@@ -1,3 +1,12 @@
+Aug 8:
+  Re-setup, UofC computers.
+  Tested Cuda-on-openCL on the mac in seperate kinfu - still needs the headers/libs from pcl...
+  Tested Seoerate kinfu w/ COCL on Linux install. - Didn't like running.
+  Erik - Make a hack for intergrate to save lower detail pcd's (good for using it to make pcd's for alternative kinfus)
+  Tested said hack
+  Noticed sliding in simpleCV-traj.. not sure what todo. (Was it moving too fast then..?)
+  FragmentOptmizer still sometimes doesn't work /shrug. (Missing corresspond file, even with BC regthres=0)
+  
 Aug 4:
   Reconfigued my system to be more user-friendly
   Tested setup scripts

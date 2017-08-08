@@ -1,8 +1,18 @@
 TODO:
-Document everything I know:
+
+OpenCV approach:
+  -Handle misalignment of depth+camera pos.
+  -Rewrite (ie, non-hack-version)
+    -`Optical flow`
+
+Document everything I know
 
 Improve Kinect intrisics:
   (Getting other device intrinsics aswell?)
+  -Manual calibration (via openCV?)
+  -Seperated Image Registration (External to when just recorded, General for any cameras)
+  -Save to file to loadin/use as needed (currently using cam.param format, doesn't have everything needed)
+  
 
 Improve Kinect Image registration:
   -Raytrace? (bad with noise)
@@ -12,4 +22,3 @@ Improve Kinect Image registration:
 SeperateKinfu: (Erik?)
   -Cuda-less implmentation of kinfu.
   -Less depedencies on PCL.
-
