@@ -1,3 +1,9 @@
+Aug 9:
+  Tested out POCL some more, (on laptop/mac w/o cuda, forked it, making it fudge cuda better)
+  Reconfigured pipeline to run compairison between my OpenCV and Kinfu for the first step of pipeline
+    -Recorded it and started it.
+  
+
 Aug 8:
   Re-setup, UofC computers.
   Tested Cuda-on-openCL on the mac in seperate kinfu - still needs the headers/libs from pcl...
