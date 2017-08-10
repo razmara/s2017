@@ -20,31 +20,31 @@ SET_SAMPLES(){
 }
 
 SETUP(){
-  ONI=$1
-  
-  NAME=$( basename $ONI)
-  
-  SET_SAMPLES $2  
-
-  CURDIR=$(pwd)
-  DIR=$CURDIR/ER.$NAME
-  mkdir -p $DIR
-  cd $DIR
-
-  if [ ! -e $ONI ]; then
-    echo "$ONI is not an absolute path (or doesn't exist)"
-    exit
-  fi
-
-  ln -s $ONI ./in.oni
+#  ONI=$1
+#  
+#  NAME=$( basename $ONI)
+#  
+  SET_SAMPLES $1
+#
+#  CURDIR=$(pwd)
+#  DIR=$CURDIR/ER.$NAME
+#  mkdir -p $WORKDIR
+#  cd $WORKDIR
+#
+#  if [ ! -e $ONI ]; then
+#    echo "$ONI is not an absolute path (or doesn't exist)"
+#    exit
+#  fi
+#
+#  ln -s $ONI ./in.oni
 }
 
 CDDIR(){
-  if [ $DIR != "" ]; then
-    cd $DIR
-  else
+#  if [ $WORKDIR != "" ]; then
+#    cd $WORKDIR
+#  else
     echo "DIR NOT SET, CANNOT CD."
-  fi
+#  fi
 
 }
 
@@ -76,38 +76,59 @@ ER_HELP(){
 
 }
 PCL_KINFU(){
+  ( time (
   CDDIR
   SET_SAMPLES $1
   rm -rf kinfu
   mkdir -p kinfu
   cd kinfu
   PCL_ARGS=" -r -ic -sd 10 -oni ../ -vs 4 --fragment "$SAMPLES" --rgbd_odometry --record_log ./100-0.log --camera ../cam.param"
-  time ( pcl_kinfu_largeScale $PCL_ARGS )
+  pcl_kinfu_largeScale $PCL_ARGS 
   cd ..
+  ) ) 2>&1 | tee kinfu_log.txt
 }
 
+PSEUDO_KINFU(){
+  ( time (
+  CDDIR
+  SET_SAMPLES $1
+  rm -rf kinfu
+  mkdir -p kinfu
+  cd kinfu
+  genTraj.sh #This is located in the openCV_TRAJ
+  pseudo_kinfu.sh
+  cd ..
+  ) ) 2>&1 | tee pkinfu_log.txt
+}
+
+
 GR(){
+  ( time (
   CDDIR
   SET_SAMPLES $1
   rm -rf gr
   mkdir -p gr
   cd gr
   ARGS=" ../kinfu/ ../kinfu/100-0.log $SAMPLES"
-  time ( GlobalRegistration $ARGS )
+  GlobalRegistration $ARGS
   cd ..
+  ) ) 2>&1 | tee gr_log.txt
 }
 
 GO(){
+  ( time (
   CDDIR
-    rm -rf go
-    mkdir -p go
-    cd go
+  rm -rf go
+  mkdir -p go
+  cd go
   ARGS="-w 100 --odometry ../gr/odometry.log --odometryinfo ../gr/odometry.info --loop ../gr/result.txt --loopinfo ../gr/result.info --pose ./pose.log --keep keep.log --refine ./reg_refine_all.log"
   time ( GraphOptimizer $ARGS )
-    cd ..
+  cd ..
+  ) ) 2>&1 | tee go_log.txt
 }
 
 BC(){
+  ( time (
   CDDIR
   rm -rf bc
   mkdir -p bc
@@ -116,17 +137,19 @@ BC(){
   UGLYHACK
   ARGS=" --reg_traj ./hack/reg_refine_all.log --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn "
   #ARGS=" --reg_traj ./go/reg_refine_all.log --registration --reg_dist 0.05 --reg_ratio 0.25 --reg_num 0 --save_xyzn "
-  time ( BuildCorrespondence $ARGS )
+  BuildCorrespondence $ARGS
   echo "BC DONE: $?"
 
   cd ..
+  ) ) 2>&1 | tee bc_log.txt
 }
 
 FO(){
-    CDDIR
-    rm -rf fo
-    mkdir -p fo
-    cd fo
+  ( time ( 
+  CDDIR
+  rm -rf fo
+  mkdir -p fo
+  cd fo
   NUMPCDS=$(ls -l ../kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
   
   UGLYHACK
@@ -134,67 +157,104 @@ FO(){
 #  ARGS=" --slac --rgbdslam ./hack/init.log --registration ./hack/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
   ARGS=" --slac --rgbdslam ../gr/init.log --registration ../bc/reg_output.log --dir ./hack/ --num $NUMPCDS --resolution 12 --iteration 10 --length 4.0 --write_xyzn_sample 10"
 
-  time ( FragmentOptimizer $ARGS )
+  FragmentOptimizer $ARGS
   cd ..
   echo "Done fragment"
+  ) ) 2>&1 | tee fo_log.txt
 }
 
 INTEGRATE(){
+  ( time (
   CDDIR
   SET_SAMPLES $1
-    rm -rf integrate
-    mkdir -p integrate
-    cd integrate
-    ln -s ../fo ./
+  rm -rf integrate
+  mkdir -p integrate
+  cd integrate
+  ln -s ../fo ./
   NUMPCDS=$(ls -l ../kinfu/cloud_bin_*.pcd | wc -l | tr -d ' ')
 
   UGLYHACK
 
-  ARGS=" --pose_traj ../fo/pose.log --seg_traj ../kinfu/100-0.log --ctr ../fo/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param --oni_file ../ --length 4.0 --interval $SAMPLES --save_to world.pcd "
+  echo "Running Integrate with Fragment Optimizer"
+  ARGS=" --pose_traj ../fo/pose.log --seg_traj ../kinfu/100-0.log --ctr ../fo/output.ctr --num $NUMPCDS --resolution 12 --camera ../cam.param --oni_file ../ --length 4.0 --interval $SAMPLES --save_to fo_world.pcd "
+  Integrate $ARGS
+
+  echo "Running Integrate without Fragment Optimizer"
+  ARGS=" --pose_traj ../go/pose.log --seg_traj ../kinfu/100-0.log --resolution 12 --camera ../cam.param --oni_file ../ --length 4.0 --interval $SAMPLES --save_to go_world.pcd "
   Integrate $ARGS
   
   cd ..
+  ) ) 1>&2 | tee integrate_log.txt
 }
 
 Pipeline() {
- 
+( time ( 
   SETUP $1 $2
 
-  if [ ! -e kinfu.$NAME.tar.xz ]; then
-   PCL_KINFU $SAMPLES &>kinfu_log.txt
-#   tar -c ./kinfu | xz -9 -T8 > kinfu.$NAME.tar.xz &
-  fi
+  PCL_KINFU $SAMPLES
 
-  if [ ! -e gr.$NAME.tar.xz ]; then
-    GR $SAMPLES &>gr_log.txt
-#    tar -c ./gr | xz -9 -T8 > gr.$NAME.tar.xz &
-  fi
+  GR $SAMPLES
 
-  if [ ! -e go.$NAME.tar.xz ]; then
-    GO $SAMPLES &>go_log.txt
-#    tar -c ./go | xz -9 -T8 > go.$NAME.tar.xz &
-  fi
+  GO $SAMPLES
+ 
+  BC $SAMPLES 
+ 
+  FO $SAMPLES 
+
+  INTEGRATE $SAMPLES
+
+) ) 2>&1 | tee pipeline.log
+}
+
+PPipeline() {
+( time (
+  SETUP $1 $2
   
-  if [ ! -e bc.$NAME.tar.xz ]; then
-    BC $SAMPLES &>bc_log.txt
-#    tar -c ./bc | xz -9 -T8 > bc.$NAME.tar.xz &
-  fi
-  
-  if [ ! -e fo.$NAME.tar.xz ]; then
-    FO $SAMPLES &>fo_log.txt
-#    tar -c ./fo | xz -9 -T8 > fo.$NAME.tar.xz &
-  fi
+  PSEUDO_KINFU
 
-  if [ ! -e integrate.$NAME.tar.xz ]; then
-    INTEGRATE $SAMPLES &>integrate_log.txt
-#    tar -c ./integrate | xz -9 -T8 > integrate.$NAME.tar.xz &
-  fi
+  GR $SAMPLES
+
+  GO $SAMPLES
+ 
+  BC $SAMPLES 
+ 
+  FO $SAMPLES 
+
+  INTEGRATE $SAMPLES
+
+) ) 2>&1 | tee pseudo_pipeline.log
+}
+  
+
+CompairPipe(){
+( time ( 
+  SETUP $1 $2
+
+  #ASSUMES BTRFS partiton w/ copy-on-write:
+  rm -rf pseudo
+  rm -rf pcl
+  FILES=`ls`
+  mkdir pseudo
+  mkdir pcl
+  cp --reflink -r ./$FILES ./pseudo
+  cp --reflink -r ./$FILES ./pcl
+  
+  cd pseudo
+  PPipleline
+  
+  cd ..
+  cd pcl
+  
+  Pipeline
+  
+  cd ..
+) ) 2>&1 | tee compair_log.txt
 
 }
 
-if [ "$1" == "" ]; then 
-  echo "Ye need arguments (The oni file in absolute path)"
-else
-  Pipeline $1 $2
-fi
+#if [ "$1" == "" ]; then 
+#  echo "Ye need arguments (The oni file in absolute path)"
+#else
+#  Pipeline $1 $2
+#fi
 
