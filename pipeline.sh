@@ -1,7 +1,8 @@
 
-ER_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/ER_port/bin
 
-export PATH=$ER_DIR:$PATH
+#ER_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/ER_port/bin
+
+#export PATH=$ER_DIR:$PATH
 #export PCL_BIN="/home/scott/pcl_merging/pcl_copyin_funcs/build/bin"
 #export ER_BIN="/home/scott/s2017/ER_port/bin"
 
@@ -203,6 +204,8 @@ Pipeline() {
 
   INTEGRATE $SAMPLES
 
+  echo "Pipeline Finished" > status.txt
+
 ) ) 2>&1 | tee pipeline.log
 }
 
@@ -221,6 +224,8 @@ PPipeline() {
   FO $SAMPLES 
 
   INTEGRATE $SAMPLES
+  
+  echo "Pseudo Pipeline Finished" > status.txt
 
 ) ) 2>&1 | tee pseudo_pipeline.log
 }
@@ -240,13 +245,16 @@ CompairPipe(){
   cp --reflink -r ./$FILES ./pcl
   
   cd pseudo
-  PPipleline
-  
+
+  if [ ! -e status.txt ] ; then
+    PPipeline
+  fi  
   cd ..
   cd pcl
   
-  Pipeline
-  
+  if [ ! -e status.txt ] ; then
+   Pipeline
+  fi
   cd ..
 ) ) 2>&1 | tee compair_log.txt
 
