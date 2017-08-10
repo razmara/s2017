@@ -23,7 +23,7 @@ main (int argc, char** argv)
  
   while( i < traj.data_.size() && (end == -1 || i < end)){
     out.data_.push_back(traj.data_[i]);
-    out.data_[i].transformation_ = (out.data_[i-1].transformation_ * out.data_[i].transformation_ );
+    out.data_[i].transformation_ = (out.data_[i].transformation_ * out.data_[i-1].transformation_ );
     i++;
   }
 
