@@ -4,12 +4,13 @@ Setting it (my pcl) up on archlinux:
     -Cuda
     -Nvidia (untested if this is actually required)
     -gcc5 (if not already)
+    -python2
     -From AUR:
       -openni
       -openni2
       -eigen
       -flann
-      -vtk
+      -vtk-git (else you miss some postgres-sql link errors...)
     
     Note: You need to recompile opencv with gcc5 flags
     
