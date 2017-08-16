@@ -8,6 +8,7 @@
 
 #export PATH=$PCL_BIN:$ER_BIN:$PATH
 
+export s2017Dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 SET_SAMPLES(){
   if [ "$1" == "" ]; then
@@ -188,6 +189,38 @@ INTEGRATE(){
   ) ) 1>&2 | tee integrate_log.txt
 }
 
+
+MESH(){
+  ( time (
+  CDDIR
+  SET_SAMPLES $1
+  rm -rf mesh
+  mkdir -p mesh
+  cd mesh
+
+  INFILE=""
+  if [ -e ../integrate/fo_world.pcd ]; then
+    echo "Running Integrate with Fragment Optimizer"
+    INFILE="../integrate/fo_world.pcd"
+  else
+    echo "Running Integrate without Fragment Optimizer"
+    INFILE="../integrate/go_world.pcd"
+  fi
+
+  pcl_kinfu_largeScale_mesh_output $INFILE --volume_size 4i
+  #String for meshlab inputs
+  MESHES=""
+  for i in `ls | grep mesh_`; do
+    MESHES=$MESHES" -i "$i
+  done
+
+  meshlabserver -s $s2017Dir/meshlab_merge_meshes_script.mlx -o mesh.ply $MESHES
+
+  cd ..
+  ) ) 1>&2 | tee mesh_log.txt
+
+}
+
 Pipeline() {
 ( time ( 
   SETUP $1 $2
@@ -203,6 +236,8 @@ Pipeline() {
   FO $SAMPLES 
 
   INTEGRATE $SAMPLES
+
+  MESH 
 
   echo "Pipeline Finished" > status.txt
 
@@ -225,6 +260,8 @@ PPipeline() {
 
   INTEGRATE $SAMPLES
   
+  MESH
+
   echo "Pseudo Pipeline Finished" > status.txt
 
 ) ) 2>&1 | tee pseudo_pipeline.log
