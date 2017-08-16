@@ -61,3 +61,4 @@ make -j4
 cd $MASTERDIR
 
 echo "Idk, mostly setup, I think."
+echo "Note: see remark at bottom of readme.md."
