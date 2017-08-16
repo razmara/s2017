@@ -11,8 +11,9 @@ QServer(){
 
   qi=0;
   while true ; do
-    if [ -e $QUEUE ] ; then
-      eval $(head -n 1 $QUEUE) 2>&1 | tee queue_$qi.log
+    if [ -e $QUEUE ] && [ -s $QUEUE ] ; then
+      echo $(head -n 1 $QUEUE) 2>&1 | tee queue_$qi.log
+      eval $(head -n 1 $QUEUE) 2>&1 | tee -a queue_$qi.log 
       tail -n +2 $QUEUE > $QUEUE.tmp
       mv $QUEUE.tmp $QUEUE
       let qi++
@@ -25,13 +26,13 @@ QServer(){
       cat $QUEUE.tmp >> $QUEUE
       rm $QUEUE.tmp
     fi
-  done
+  done > /tmp/queue.log
 
 }
 
 #Add to queue
 QAdd(){
-  echo " cd \"`pwd`\" ; $@" > $QUEUE.add
+  echo " cd \"`pwd`\" ; $@" >> $QUEUE.add
 }
 
 #Remove from queue

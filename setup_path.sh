@@ -14,6 +14,8 @@ PATH=$DIR/oni_stuff/simpleReader2/build:$PATH
 PATH=$DIR/utils/build:$PATH
 PATH=$DIR/openCV_Traj:$PATH
 
+
+source $DIR/simpleQueue.sh
 source $DIR/pipeline.sh
 
 DIR=OLDDIR

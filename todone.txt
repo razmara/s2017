@@ -1,3 +1,7 @@
+Aug 10:
+  Generated abunch of different scenes, and fixed buggs in my scripts so that I can run more overnight.
+  Setup simulated data getting/tester.
+
 Aug 9:
   Tested out POCL some more, (on laptop/mac w/o cuda, forked it, making it fudge cuda better)
   Reconfigured pipeline to run compairison between my OpenCV and Kinfu for the first step of pipeline
