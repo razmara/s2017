@@ -207,7 +207,7 @@ MESH(){
     INFILE="../integrate/go_world.pcd"
   fi
 
-  pcl_kinfu_largeScale_mesh_output $INFILE --volume_size 4i
+  pcl_kinfu_largeScale_mesh_output $INFILE --volume_size 4
   #String for meshlab inputs
   MESHES=""
   for i in `ls | grep mesh_`; do
