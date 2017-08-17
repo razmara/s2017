@@ -1,5 +1,8 @@
 TODO:
 
+Test:
+  -Re-enable avx in pcl:gpu:CMakeLists.txt
+
 OpenCV approach:
   -Handle misalignment of depth+camera pos.
   -Rewrite (ie, non-hack-version)

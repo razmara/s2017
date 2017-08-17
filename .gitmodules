@@ -43,3 +43,6 @@
 [submodule "openCV_Traj"]
 	path = openCV_Traj
 	url = git@github.com:ttoocs/openCV_Traj.git
+[submodule "ElasticReconstructionRelease"]
+	path = ElasticReconstructionRelease
+	url = git@github.com:ttoocs/ElasticReconstructionRelease.git
