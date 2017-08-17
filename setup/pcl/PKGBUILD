@@ -30,7 +30,7 @@ depends=(
 makedepends=(cmake git)
 #source=(git+https://github.com/PointCloudLibrary/pcl)
 #source=(git+https://github.com/ttoocs/pcl#branch=KinfuLS_copy_in_funcs)
-source=(git+https://github.com/ttoocs/pcl#branch=oni2_input)
+source=(git+https://github.com/ttoocs/pcl#branch=cv_input)
 sha256sums=(SKIP)
 conflicts=(pcl)
 provides=(pcl)
