@@ -40,6 +40,9 @@ makepkg -s -i
 #echo "G2O (for ER)"
 #apacman -S g2o-git --noconfirm                                                                                                                      
 
+echo "Openni (needed for PCL to build stuff properly.)"
+apacman -S openni --noconfirm
+
 echo "OpenNI2"
 cd $MASTERDIR
 cd OpenNI2
