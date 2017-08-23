@@ -1,10 +1,13 @@
 TODO:
 
+Aug21: - Check if built version of PCL from Relase thing is good, as SeperateKinfu is having a boost pointer issue.
+
 Test:
   -Re-enable avx in pcl:gpu:CMakeLists.txt
 
 OpenCV approach:
   -Handle misalignment of depth+camera pos.
+  -Handle dropped/no transformations..
   -Rewrite (ie, non-hack-version)
     -`Optical flow`
 

@@ -35,6 +35,14 @@ QAdd(){
   echo " cd \"`pwd`\" ; $@" >> $QUEUE.add
 }
 
+#AdvQueAdd 
+#Makes a clone of the filesystem at QAddAdv() time, and then runs it from that state.
+#Then copys it back in-to the current filesystem.
+
+QAddAdv(){
+  echo "TODO."
+}
+
 #Remove from queue
 #QRem(){
 #  
