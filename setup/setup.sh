@@ -24,6 +24,14 @@ cd setup/flann			#Use local files to get it.
 makepkg -s -i	
 #apacman -S flann --noconfirm  #Use Apacman to get it
 
+echo "G2o"
+cd $MASTERDIR
+cd setup/g2o
+makepkg -s -i	
+
+#echo "G2O (for ER)"
+#apacman -S g2o-git --noconfirm                                                                                                                      
+
 echo "OpenNI2"
 cd $MASTERDIR
 cd OpenNI2
@@ -44,9 +52,6 @@ echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
 makepkg -s -i -f
-
-echo "G2O (for ER)"
-apacman -S g2o-git --noconfirm                                                                                                                      
 
 echo "ER"
 cd $MASTERDIR
