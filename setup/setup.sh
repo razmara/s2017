@@ -12,6 +12,14 @@ updateSub(){
   git submodule update --remote ./
 }
 
+echo "Fix git randomly dropping directories or submodules or something.."
+cd $MASTERDIR
+(
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+git checkout $BRANCH
+git pull
+)
+
 echo "Apacman"
 cd /tmp
 curl -O "https://raw.githubusercontent.com/oshazard/apacman/master/apacman"
