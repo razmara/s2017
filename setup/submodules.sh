@@ -17,3 +17,5 @@ updateSub spcl
 updateSub openCV_Traj
 updateSub OpenNI2
 updateSub SeperateKinfu
+updateSub 3d-re
+updateSub GraphOptimizerTest
