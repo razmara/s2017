@@ -1,29 +1,15 @@
 #!/bin/bash
 
-MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
-
-#Setup CCache
-PATH="/usr/lib/ccache/bin/:$PATH"
-
-NUMCPUS=`nproc`
-if [ "$NUMCPUS" == "" ]; then
-  NUMCPUS=4
-fi
-
-sudo sh $MASTERDIR/setup/pacman.sh
-
 updateSub(){
   git submodule init ./
   git submodule update --remote ./
 }
 
-echo "Fix git randomly dropping directories or submodules or something.."
-cd $MASTERDIR
-(
-BRANCH=`git rev-parse --abbrev-ref HEAD`
-git checkout $BRANCH
-git pull
-)
+
+
+##the  actual run/setup command.
+RUN(){
+sudo sh $MASTERDIR/setup/pacman.sh
 
 echo "Apacman"
 cd /tmp
@@ -82,3 +68,28 @@ make -j $NUMCPUS
 cd $MASTERDIR
 
 echo "Note: see remark at bottom of readme.md."
+}
+
+if [ "$1" == "RUN" ]; then
+	RUN
+	exit
+fi
+
+MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
+
+#Setup CCache
+PATH="/usr/lib/ccache/bin/:$PATH"
+
+NUMCPUS=`nproc`
+if [ "$NUMCPUS" == "" ]; then
+  NUMCPUS=4
+fi
+
+echo "Fix git randomly dropping directories or submodules or something.."
+cd $MASTERDIR
+(
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+git checkout $BRANCH
+git pull
+sh $MASTERDIR/setup/setup.sh RUN
+)
