@@ -6,7 +6,6 @@ updateSub(){
 }
 
 
-
 ##the  actual run/setup command.
 RUN(){
 sudo sh $MASTERDIR/setup/pacman.sh
@@ -70,10 +69,6 @@ cd $MASTERDIR
 echo "Note: see remark at bottom of readme.md."
 }
 
-if [ "$1" == "RUN" ]; then
-	RUN
-	exit
-fi
 
 MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 
@@ -83,6 +78,11 @@ PATH="/usr/lib/ccache/bin/:$PATH"
 NUMCPUS=`nproc`
 if [ "$NUMCPUS" == "" ]; then
   NUMCPUS=4
+fi
+
+if [ "$1" == "RUN" ]; then
+	RUN
+	exit
 fi
 
 echo "Fix git randomly dropping directories or submodules or something.."
