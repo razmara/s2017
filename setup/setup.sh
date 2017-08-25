@@ -5,6 +5,11 @@ MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
 #Setup CCache
 PATH="/usr/lib/ccache/bin/:$PATH"
 
+NUMCPUS=`nproc`
+if [ "$NUMCPUS" == "" ]; then
+  NUMCPUS=4
+fi
+
 sudo sh $MASTERDIR/setup/pacman.sh
 
 updateSub(){
@@ -66,15 +71,14 @@ makepkg -s -i -f
 
 echo "ER"
 cd $MASTERDIR
-cd ER_port
+cd er
 updateSub
-git checkout IntegrateMerged
+git checkout master
 mkdir build
 cd build
 cmake ../
-make -j4
+make -j $NUMCPUS
 
 cd $MASTERDIR
 
-echo "Idk, mostly setup, I think."
 echo "Note: see remark at bottom of readme.md."
