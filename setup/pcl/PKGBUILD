@@ -68,8 +68,7 @@ prepare() {
 		-DBUILD_app_3d_rec_framework=ON \
 		-DBUILD_simulation=ON \
 		-DWITH_OPENNI=ON \
-		-DWITH_OPENNI2=ON \
-    -DNDEBUG
+		-DWITH_OPENNI2=ON 
 }
 
 build() {
