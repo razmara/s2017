@@ -16,14 +16,15 @@ The key dependencies for Elastic Reconstruction:
 
 # Running:
 
-`source setup_path.sh` will setup the PATH environment variable for use with most utilities in the folder.
-`source pipeline.sh` will setup the PATH environment and bash functions to run the Elastic Reconstruction pipeline locally from this folder. (It is also sourced from setup\_path.sh)
+* `source setup_path.sh` will setup the PATH environment variable for use with most utilities in the folder.
+* `source pipeline.sh` will setup the PATH environment and bash functions to run the Elastic Reconstruction pipeline locally from this folder. (It is also sourced from setup\_path.sh)
 
 At this point, you need to change directory (`cd`) to a folder with data, where you can then run `Pipeline` (defined in pipeline.sh) to run the whole pipeline. Assuming everything works, and meshlab is also installed, you will be left a mesh.ply in a mesh folder in the current directory. Without meshlab, this folder will be empty, and the final results will be in integrate as either go\_world.pcd (Always present) or fo\_world.pcd (Only sometimes present)
 
 
 ## Submodule Quick use:
-# New method: setup/submodules.sh
+# New method: 
+  * `sh setup/submodules.sh`
 
 # Old method:
 1. cd ./someFolderThatIsAGitSubmodule
