@@ -14,7 +14,7 @@ The key dependencies for Elastic Reconstruction:
   * PCL built with kinfu. (Requires Cuda, OpenNI1, VTK... and more)
   * g2o (The default homebrew version of it for MacOSX doesn't quite work, building from source does though. Note: Currently put at a fixed version, as an updated caused segfaults)
 
-##### Aside: if you have built/installed the dependencys already, there is a submodule ElasticReconstructionRelease, which is a smaller and simpler git, designed to build _just_ the code-base for ElasticReconstruction. (See it's readme for more details)
+##### Aside: if you have built/installed the dependencies already, there is a submodule ElasticReconstructionRelease, which is a smaller and simpler git, designed to build _just_ the code-base for ElasticReconstruction. (See it's readme for more details)
 
 ## Running:
 
@@ -23,9 +23,9 @@ The key dependencies for Elastic Reconstruction:
 
 At this point, you need to change directory (`cd`) to a folder with data, where you can then run `Pipeline` (defined in pipeline.sh) to run the whole pipeline. Assuming everything works, and meshlab is also installed, you will be left a mesh.ply in a mesh folder in the current directory. Without meshlab, this folder will be empty, and the final results will be in integrate as either go\_world.pcd (Always present) or fo\_world.pcd (Only sometimes present)
 
-### More Advanced Running:
 
-
+* Pipeline.sh:
+Most of the actual ElasticReconstruction file-gluing between parts is done in pipeline.sh, which is a re-implmentation of the original demo.sh provided in the binary download. As-is, the arguments for a particular segment of the pipeline are hard-coded in this script. If one wants to change them, it should be relatively easy todo so, by either running the command manually in the corresponding folder and typing in the arguments, or simply editing them in the script.
 
 
 ## Submodule Quick use:
