@@ -19,6 +19,9 @@ I use both for setting it up, pacman should be more/less replaceable with any ot
 # Alterations:
 
 So, I don't actually keep an up-to-date global install of pcl, and instead just leave it in s2017/pcl, and work with it directly there. The reason for this is that `makepkg` always builds from scratch, ie - no incremental builds. The setup\_path.sh in the parent directory handles this for the executables... and the linker is able to figure this out aswell. 
-However, there still _is_ a global install. Ideally, I'd like to find a way to not need this, but I'm not sure how to do that while having cmake and such work. (Besides symlinking everything)
+However, there still _is_ a global install. Ideally, I'd like to find a way to not need this, but I'm not sure how to do that while having cmake and such work. (Besides symlinking everything) 
 
+
+# Alterations new:
+Since ElasticReconstructionRelease now exists and uses SeperateKinfu, it should be relativly easy to re-build any modifications to pcl's kinfu\_large\_scale files without needing to recompile for the whole system.
 
