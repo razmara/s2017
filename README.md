@@ -5,21 +5,27 @@ This is the main-level work directory for me during the summer 2017 research pro
 
 Most of the directories here are git submodules, linking to other gits.
 
-## How to run:
+# How to run:
 
-# Initial Setup:
-The script `setup/setup.sh` assumes the user is running Arch Linux, and will attempt to install/update all needed dependencies. 
+## Initial Setup:
+The script `setup/setup.sh` assumes the user is running Arch Linux, and will attempt to install/update all needed dependencies. (as of August 28, 2017)
 
 The key dependencies for Elastic Reconstruction:
   * PCL built with kinfu. (Requires Cuda, OpenNI1, VTK... and more)
   * g2o (The default homebrew version of it for MacOSX doesn't quite work, building from source does though. Note: Currently put at a fixed version, as an updated caused segfaults)
 
-# Running:
+##### Aside: if you have built/installed the dependencys already, there is a submodule ElasticReconstructionRelease, which is a smaller and simpler git, designed to build _just_ the code-base for ElasticReconstruction. (See it's readme for more details)
+
+## Running:
 
 * `source setup_path.sh` will setup the PATH environment variable for use with most utilities in the folder.
 * `source pipeline.sh` will setup the PATH environment and bash functions to run the Elastic Reconstruction pipeline locally from this folder. (It is also sourced from setup\_path.sh)
 
 At this point, you need to change directory (`cd`) to a folder with data, where you can then run `Pipeline` (defined in pipeline.sh) to run the whole pipeline. Assuming everything works, and meshlab is also installed, you will be left a mesh.ply in a mesh folder in the current directory. Without meshlab, this folder will be empty, and the final results will be in integrate as either go\_world.pcd (Always present) or fo\_world.pcd (Only sometimes present)
+
+### More Advanced Running:
+
+
 
 
 ## Submodule Quick use:
