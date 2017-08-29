@@ -2,13 +2,13 @@
 	path = StSDK
 	url = git@github.com:ttoocs/Structure-SDK.git
 [submodule "ER_port"]
-	path = ER_port
+	path = misc/erik_origonal_erport_git
 	url = git@github.com:Spoonman376/Elastic-Reconstruction-Port.git
 [submodule "3d-re"]
 	path = 3d-re
 	url = git@github.com:Spoonman376/3d-Reconstruction.git
 [submodule "ER_myfork"]
-	path = ER_myfork
+	path = er
 	url = git@github.com:ttoocs/ElasticReconstruction.git
 [submodule "pcl"]
 	path = pcl

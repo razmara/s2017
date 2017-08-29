@@ -117,3 +117,37 @@ struct RGBDInformation {
 		fclose( f );
 	}
 };
+
+
+struct CameraParam {
+public:
+	double fx_, fy_, cx_, cy_, ICP_trunc_, integration_trunc_;
+
+	CameraParam() : fx_( 525.0 ), fy_( 525.0 ), cx_( 319.5 ), cy_( 239.5 ), ICP_trunc_( 2.5 ), integration_trunc_( 2.5 )  {
+	}
+
+	void LoadFromFile( std::string filename ) {
+		FILE * f = fopen( filename.c_str(), "r" );
+		if ( f != NULL ) {
+			char buffer[1024];
+			while ( fgets( buffer, 1024, f ) != NULL ) {
+				if ( strlen( buffer ) > 0 && buffer[ 0 ] != '#' ) {
+					sscanf( buffer, "%lf", &fx_);
+					fgets( buffer, 1024, f );
+					sscanf( buffer, "%lf", &fy_);
+					fgets( buffer, 1024, f );
+					sscanf( buffer, "%lf", &cx_);
+					fgets( buffer, 1024, f );
+					sscanf( buffer, "%lf", &cy_);
+					fgets( buffer, 1024, f );
+					sscanf( buffer, "%lf", &ICP_trunc_);
+					fgets( buffer, 1024, f );
+					sscanf( buffer, "%lf", &integration_trunc_);
+				}
+			}
+			fclose ( f );
+//			PCL_WARN( "Camera model set to (fx, fy, cx, cy, icp_trunc, int_trunc):\n\t%.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n", fx_, fy_, cx_, cy_, ICP_trunc_, integration_trunc_ );
+		}
+	}
+};
+

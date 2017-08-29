@@ -26,6 +26,7 @@ depends=(
 	openmpi
   cuda
   openni2-git
+  openni
 )
 makedepends=(cmake git)
 #source=(git+https://github.com/PointCloudLibrary/pcl)
@@ -49,7 +50,7 @@ prepare() {
 
 	cmake "${srcdir}/pcl" \
 		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_BUILD_TYPE=Debug \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 		-DBUILD_apps=ON \
 		-DBUILD_apps_cloud_composer=ON \
 		-DBUILD_apps_in_hand_scanner=ON \
@@ -67,7 +68,7 @@ prepare() {
 		-DBUILD_app_3d_rec_framework=ON \
 		-DBUILD_simulation=ON \
 		-DWITH_OPENNI=ON \
-		-DWITH_OPENNI2=ON
+		-DWITH_OPENNI2=ON 
 }
 
 build() {

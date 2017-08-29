@@ -1,16 +1,14 @@
 #!/bin/bash
 
-MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
-
-#Setup CCache
-PATH="/usr/lib/ccache/bin/:$PATH"
-
-sudo sh $MASTERDIR/setup/pacman.sh
-
 updateSub(){
   git submodule init ./
   git submodule update --remote ./
 }
+
+
+##the  actual run/setup command.
+RUN(){
+sudo sh $MASTERDIR/setup/pacman.sh
 
 echo "Apacman"
 cd /tmp
@@ -23,6 +21,17 @@ cd $MASTERDIR
 cd setup/flann			#Use local files to get it.
 makepkg -s -i	
 #apacman -S flann --noconfirm  #Use Apacman to get it
+
+echo "G2o"
+cd $MASTERDIR
+cd setup/g2o
+makepkg -s -i	
+
+#echo "G2O (for ER)"
+#apacman -S g2o-git --noconfirm                                                                                                                      
+
+echo "Openni (needed for PCL to build stuff properly.)"
+apacman -S openni --noconfirm
 
 echo "OpenNI2"
 cd $MASTERDIR
@@ -45,20 +54,42 @@ cd $MASTERDIR
 cd setup/pcl
 makepkg -s -i -f
 
-echo "G2O (for ER)"
-apacman -S g2o-git --noconfirm                                                                                                                      
-
 echo "ER"
 cd $MASTERDIR
-cd ER_port
+cd er
 updateSub
-git checkout IntegrateMerged
+git checkout master
 mkdir build
 cd build
 cmake ../
-make -j4
+make -j $NUMCPUS
 
 cd $MASTERDIR
 
-echo "Idk, mostly setup, I think."
 echo "Note: see remark at bottom of readme.md."
+}
+
+
+MASTERDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../"
+
+#Setup CCache
+PATH="/usr/lib/ccache/bin/:$PATH"
+
+NUMCPUS=`nproc`
+if [ "$NUMCPUS" == "" ]; then
+  NUMCPUS=4
+fi
+
+if [ "$1" == "RUN" ]; then
+	RUN
+	exit
+fi
+
+echo "Fix git randomly dropping directories or submodules or something.."
+cd $MASTERDIR
+(
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+git checkout $BRANCH
+git pull
+sh $MASTERDIR/setup/setup.sh RUN
+)
