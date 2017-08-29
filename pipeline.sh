@@ -67,12 +67,9 @@ ER_HELP(){
   echo "BC"
   echo "FP"
   echo "INTEGRATE"
-  
+  echo "MESH"
+   
   echo "or PIPELINE"
-
-  echo "Afterwards, run pcl_kinfu_largeScale_mesh_output <filename>"
-  echo " Then in meshlab, import all of them, merge (removing verts/faces), and export."
-
 
 }
 PCL_KINFU(){
@@ -89,6 +86,7 @@ PCL_KINFU(){
 }
 
 PSEUDO_KINFU(){
+  #The uses the openCV_Traj, which is a quick/hacked-togeather OpenCV based trajectory getter.
   ( time (
   CDDIR
   SET_SAMPLES $1
