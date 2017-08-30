@@ -67,5 +67,10 @@ Most of the actual ElasticReconstruction file-gluing between parts is done in pi
  *   oni_stuff - Has my own OpenNI utilities. ni2Recorder (What I use to record data.) ni1Recorder/ni1Reader/ni2Reader (Readers very simply try to access data)
               - Has a converter submodule, this is my Oni2 -> Oni1 converting library.
 
+#Odd segfaults:
+* compiling some of the programs with -march=native seems to cause segfaults. Internal to my fork of PCL, there is something that disables this in the pcl/gpu/CMakeLists.txt and/or pcl/features/CMakeLists.txt. 
 
+* g2o also seems to suffer with these optimization.
+
+* A good way to find the source of segfaults is by `gdb --args <programname> <args>` and then running it `r`. When it segfaults it returns you to a prompt, which you can use `info stack` to get a printed list of the stack, usually with the filenames/lines/etc. However, if it is from a library, before even entering main(), they will all just be addresses. Using `LD_DEBUG=ALL <programname> <args...> 2>ldd.txt` and then looking through (bottom-up) of ldd.txt will allow you find what caused the issue.
 
