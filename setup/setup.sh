@@ -19,13 +19,13 @@ apacman -S apacman-deps --noconfirm
 echo "Flann"
 cd $MASTERDIR
 cd setup/flann			#Use local files to get it.
-makepkg -s -i	
+makepkg -s -i -C -f
 #apacman -S flann --noconfirm  #Use Apacman to get it
 
 echo "G2o"
 cd $MASTERDIR
 cd setup/g2o
-makepkg -s -i	
+makepkg -s -i	-C -f
 
 #echo "G2O (for ER)"
 #apacman -S g2o-git --noconfirm                                                                                                                      
@@ -39,20 +39,20 @@ cd OpenNI2
 updateSub
 git checkout devmerge
 cd aur
-makepkg -s -i -f
+makepkg -s -i -f -C
 
 echo "LibFreenect2"
 cd $MASTERDIR
 cd libfreenect2
 updateSub
 cd aur
-makepkg -s -i -f
+makepkg -s -i -f -C
 
 
 echo "PCL"
 cd $MASTERDIR
 cd setup/pcl
-makepkg -s -i -f
+makepkg -s -i -f -C
 
 echo "ER"
 cd $MASTERDIR
